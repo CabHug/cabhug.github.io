@@ -1,0 +1,950 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description"    id="meta_description"  content="">
+  <meta name="author"         id="meta_author"        content="Hugo Andres Cabrera">
+  <meta name="keywords"       id="meta_keywords"      content="">
+  <meta property="og:title"   id="meta_og_title"      content="">
+  <meta property="og:type"    content="profile">
+  <title id="page_title">Portafolio · Hugo Cabrera</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <style>
+    /* ============================================================
+       VARIABLES DE COLOR Y TEMA
+       ============================================================ */
+    :root {
+      /* LIGHT MODE */
+      --bg-main:        #f8fafc;
+      --bg-card:        #ffffff;
+      --text-primary:   #0a225a;
+      --text-secondary: #334155;
+      --text-muted:     #64748b;
+      --accent:         #1d4ed8;
+      --accent-hover:   #1e40af;
+      --border:         #e2e8f0;
+      --badge-bg:       #f1f5f9;
+      --badge-text:     #0f172a;
+      --shadow:         0 1px 3px 0 rgba(15,23,42,.05), 0 1px 2px 0 rgba(15,23,42,.03);
+      --shadow-hover:   0 0 0 2px var(--accent), 0 4px 16px -4px rgba(29,78,216,.18);
+      --radius-card:    12px;
+      --radius-badge:   6px;
+      --max-width:      1000px;
+      /* Validation box */
+      --val-bg:         rgba(29,78,216,.06);
+      --val-border:     rgba(29,78,216,.22);
+      --val-icon-public: #16a34a;
+      --val-icon-conf:  #b45309;
+    }
+
+    /* DARK MODE — colores con buen contraste, sin azules eléctricos */
+    [data-theme="dark"] {
+      --bg-main:        #0d1117;
+      --bg-card:        #161b22;
+      --text-primary:   #e6edf3;
+      --text-secondary: #b0bec8;
+      --text-muted:     #768390;
+      --accent:         #79c0ff;    /* azul suave legible sobre oscuro */
+      --accent-hover:   #a5d6ff;
+      --border:         #30363d;
+      --badge-bg:       #21262d;
+      --badge-text:     #cdd9e5;
+      --shadow:         0 0 0 1px rgba(240,246,252,.1);
+      --shadow-hover:   0 0 0 2px var(--accent), 0 4px 16px -4px rgba(121,192,255,.2);
+      /* Validation box */
+      --val-bg:         rgba(121,192,255,.07);
+      --val-border:     rgba(121,192,255,.2);
+      --val-icon-public: #3fb950;
+      --val-icon-conf:  #d29922;
+    }
+
+    html, body {
+      background-color: var(--bg-main) !important;
+      color: var(--text-primary) !important;
+    }
+
+    *, *::before, *::after {
+      margin: 0; padding: 0; box-sizing: border-box;
+      transition: background-color .25s ease, color .25s ease, border-color .25s ease, box-shadow .25s ease;
+    }
+    /* Excluir transform de la transición global para no interferir con hover preciso */
+    .project-card, .cert-card, .highlight-card, .lang-item, .soft-card, .skill-card {
+      transition: background-color .25s ease, color .25s ease, border-color .25s ease, box-shadow .25s ease;
+    }
+
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      line-height: 1.5;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ── Toolbar ── */
+    .toolbar {
+      position: sticky; top: 0; z-index: 100;
+      background: rgba(248,250,252,.85);
+      backdrop-filter: saturate(180%) blur(8px);
+      border-bottom: 1px solid var(--border);
+      padding: .75rem 2rem;
+      display: flex; justify-content: flex-end; align-items: center; gap: .75rem;
+    }
+    [data-theme="dark"] .toolbar { background: rgba(13,17,23,.85); }
+
+    /* ── Botones ── */
+    .btn {
+      background: var(--bg-card); color: var(--text-primary);
+      border: 1px solid var(--border); padding: .5rem 1rem;
+      border-radius: var(--radius-badge); font-family: inherit; font-weight: 500;
+      font-size: .875rem; cursor: pointer;
+      display: inline-flex; align-items: center; gap: .5rem;
+      box-shadow: var(--shadow); text-decoration: none; white-space: nowrap;
+    }
+    .btn:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+      box-shadow: var(--shadow-hover);
+    }
+    .btn-primary { background: var(--text-primary); color: var(--bg-main); border: 1px solid var(--text-primary); }
+    .btn-primary:hover { background: var(--accent); color: #fff; border-color: var(--accent); }
+
+    /* ── Layout ── */
+    .container {
+      max-width: var(--max-width); margin: 0 auto;
+      padding: 0 2rem 5rem 2rem;
+      display: flex; flex-direction: column; gap: 5rem;
+    }
+    section { display: flex; flex-direction: column; gap: 1.5rem; }
+    .section-title {
+      font-size: 1.25rem; font-weight: 700; color: var(--text-primary);
+      letter-spacing: -.02em; display: flex; align-items: center; gap: .5rem;
+    }
+
+    /* ── Hero ── */
+    .hero-container { padding-top: 4rem; display: flex; flex-direction: column; gap: 1.5rem; align-items: flex-start; }
+    /* Portada estilo banner (como el cover de LinkedIn).
+       Si PORTFOLIO_DATA.contact.cover tiene una URL, se muestra esa imagen;
+       si no, se ve este degradado por defecto. Se oculta en teléfono
+       (ver @media max-width: 600px) dejando solo el nombre/título. */
+    .hero-cover {
+      width: 100%; aspect-ratio: 4.5 / 1; min-height: 140px;
+      border-radius: var(--radius-card); overflow: hidden;
+      border: 1px solid var(--border); box-shadow: var(--shadow);
+      background:
+        repeating-linear-gradient(135deg, rgba(255,255,255,.09) 0 2px, transparent 2px 16px),
+        linear-gradient(135deg, var(--accent) 0%, #7c3aed 100%);
+    }
+    .hero-cover-img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .hero-name { font-size: 2.5rem; font-weight: 800; letter-spacing: -.04em; line-height: 1.1; }
+    .hero-title { font-size: 1.25rem; font-weight: 500; color: var(--text-secondary); letter-spacing: -.01em; max-width: 600px; }
+    .hero-links { display: flex; flex-wrap: wrap; gap: .75rem; margin-top: .5rem; }
+
+    /* ── Highlight cards ── */
+    .about-text { font-size: 1rem; color: var(--text-secondary); max-width: 800px; line-height: 1.6; text-align: justify; }
+    .highlight-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 1rem; margin-top: .5rem; }
+    .highlight-card {
+      background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius-card);
+      padding: 1.25rem; box-shadow: var(--shadow); display: flex; flex-direction: column; gap: .25rem;
+    }
+    .highlight-card:hover { border-color: var(--accent); box-shadow: var(--shadow-hover); }
+    .highlight-card:hover .highlight-val { color: var(--accent); }
+    .highlight-val { font-size: 1.5rem; font-weight: 700; color: var(--text-primary); letter-spacing: -.03em; }
+    .highlight-lbl { font-size: .815rem; font-weight: 500; color: var(--text-muted); }
+
+    /* ============================================================
+       CARRUSELES INFINITOS
+       ============================================================ */
+    .carousel-outer {
+      position: relative; margin: 0 -2rem; padding: 0 2rem;
+    }
+    .carousel-track {
+      display: flex; gap: 1.25rem;
+      overflow-x: auto; overflow-y: hidden;
+      scroll-snap-type: x proximity;
+      scroll-behavior: smooth;
+      -webkit-overflow-scrolling: touch;
+      padding-bottom: 1.25rem;
+      scrollbar-width: none;            /* Firefox */
+    }
+    .carousel-track::-webkit-scrollbar { display: none; }  /* Chrome/Safari/Edge */
+    .carousel-track > * { scroll-snap-align: start; }
+    /* Cuando hay pocas tarjetas y ya caben todas, se centran en vez de
+       quedar pegadas a la izquierda como si faltara desplazar */
+    .carousel-track.is-centered { justify-content: center; }
+
+    /* Botones de carrusel */
+    .carousel-btn {
+      position: absolute; top: calc(50% - .625rem); transform: translateY(-50%);
+      background: var(--bg-card); border: 1px solid var(--border);
+      color: var(--text-primary); border-radius: 50%; width: 2.5rem; height: 2.5rem;
+      display: flex; align-items: center; justify-content: center; cursor: pointer;
+      box-shadow: var(--shadow); z-index: 10;
+    }
+    .carousel-btn:hover { border-color: var(--accent); color: var(--accent); box-shadow: var(--shadow-hover); }
+    .carousel-btn.prev { left: .25rem; }
+    .carousel-btn.next { right: .25rem; }
+
+    /* ============================================================
+       PROJECT CARDS — sin transform en hover
+       ============================================================ */
+    .project-card {
+      flex: 0 0 420px;
+      background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius-card);
+      padding: 1.5rem; box-shadow: var(--shadow); display: flex; flex-direction: column; gap: 1rem;
+      /* NO transform — solo borde y sombra */
+    }
+    .project-card:hover { border-color: var(--accent); box-shadow: var(--shadow-hover); }
+    .project-header { display: flex; flex-direction: column; gap: .15rem; }
+    .project-title { font-size: 1.1rem; font-weight: 700; letter-spacing: -.01em; }
+    .project-company { font-size: .85rem; font-weight: 600; color: var(--accent); text-transform: uppercase; letter-spacing: .05em; }
+    .project-body { font-size: .875rem; color: var(--text-secondary); display: flex; flex-direction: column; gap: .5rem; flex: 1; }
+    .project-body strong { color: var(--text-primary); }
+    .project-actions { display: flex; flex-wrap: wrap; gap: .5rem; margin-top: auto; padding-top: .5rem; }
+
+    /* ── Caja de validación de código ── */
+    .project-validation {
+      display: flex; align-items: flex-start; gap: .6rem;
+      background: var(--val-bg);
+      border: 1px solid var(--val-border);
+      border-radius: var(--radius-badge);
+      padding: .6rem .8rem;
+      font-size: .8rem;
+    }
+    .val-icon {
+      font-size: .9rem; margin-top: .05rem; flex-shrink: 0;
+    }
+    .val-icon.public { color: var(--val-icon-public); }
+    .val-icon.confidential { color: var(--val-icon-conf); }
+    .val-text { display: flex; flex-direction: column; gap: .15rem; }
+    .val-label {
+      font-weight: 700; font-size: .72rem; letter-spacing: .04em; text-transform: uppercase;
+      color: var(--text-muted);
+    }
+    .val-title { font-weight: 600; color: var(--text-primary); line-height: 1.3; }
+
+    /* ── Caja de referencias ── */
+    .project-refs {
+      background: var(--badge-bg);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-badge);
+      padding: .65rem .85rem;
+      display: flex; flex-direction: column; gap: .4rem;
+    }
+    .project-refs-title {
+      font-size: .7rem; font-weight: 700; color: var(--text-muted);
+      text-transform: uppercase; letter-spacing: .05em;
+      display: flex; align-items: center; gap: .3rem;
+    }
+    .project-refs-title i { color: var(--accent); font-size: .7rem; }
+    .project-refs-list { display: flex; flex-wrap: wrap; gap: .5rem; }
+    .project-refs-list a {
+      display: inline-flex; align-items: center; gap: .3rem;
+      font-size: .8rem; font-weight: 600; color: var(--text-secondary); text-decoration: none;
+      padding: .2rem .5rem; border-radius: var(--radius-badge);
+      border: 1px solid var(--border); background: var(--bg-card);
+    }
+    .project-refs-list a:hover { border-color: var(--accent); color: var(--accent); }
+    .project-refs-list a i { font-size: .72rem; color: var(--accent); }
+
+    /* Badges en tarjetas */
+    .badges-container { display: flex; flex-wrap: wrap; gap: .35rem; margin-top: .25rem; }
+    .badge {
+      background: var(--badge-bg); color: var(--badge-text); border: 1px solid var(--border);
+      padding: .2rem .55rem; border-radius: var(--radius-badge); font-size: .73rem; font-weight: 600;
+    }
+
+    /* ── Skills ── */
+    .skills-wrapper { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; }
+    .skill-card {
+      background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius-card);
+      padding: 1.75rem; box-shadow: var(--shadow);
+      display: flex; flex-direction: column; gap: 1.5rem; height: 100%;
+    }
+    .skill-card:hover { border-color: var(--accent); box-shadow: var(--shadow-hover); }
+    .skills-subtitle {
+      font-size: 1.1rem; font-weight: 700; color: var(--text-primary);
+      display: flex; align-items: center; gap: .5rem;
+      padding-bottom: .5rem; border-bottom: 1px solid var(--border);
+    }
+    .skill-group-container { display: flex; flex-direction: column; gap: .75rem; }
+    .skill-group-label { font-size: .75rem; font-weight: 700; text-transform: uppercase; letter-spacing: .05em; color: var(--text-muted); }
+    .skill-tags { display: flex; flex-wrap: wrap; gap: .4rem; }
+    .skill-tag {
+      background: var(--badge-bg); color: var(--badge-text); border: 1px solid var(--border);
+      padding: .25rem .6rem; border-radius: var(--radius-badge); font-size: .82rem; font-weight: 500;
+    }
+    .skill-tag:hover { border-color: var(--accent); color: var(--accent); }
+    .skill-tag.highlight { background: var(--accent); color: #fff; border-color: var(--accent); }
+    .skill-tag.highlight:hover { background: var(--accent-hover); }
+
+    .soft-card-grid { display: flex; flex-direction: column; gap: .75rem; }
+    .soft-card {
+      background: var(--bg-main); border: 1px solid var(--border); border-radius: var(--radius-badge);
+      padding: 1rem; display: flex; gap: .75rem; align-items: start;
+    }
+    .soft-card:hover { border-color: var(--accent); }
+    .soft-card i { color: var(--accent); font-size: 1rem; margin-top: .15rem; }
+    .soft-card-content { display: flex; flex-direction: column; gap: .15rem; }
+    .soft-card-title { font-size: .9rem; font-weight: 600; color: var(--text-primary); }
+    .soft-card-desc { font-size: .82rem; color: var(--text-muted); }
+
+    /* ── Idiomas ── */
+    .languages-wrapper { display: flex; flex-wrap: wrap; gap: 1rem; }
+    .lang-item {
+      background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius-card);
+      padding: 1rem 1.5rem; box-shadow: var(--shadow);
+      font-size: .95rem; color: var(--text-secondary); font-weight: 500;
+      display: flex; align-items: center; gap: .75rem; flex: 1; min-width: 200px;
+    }
+    .lang-item:hover { border-color: var(--accent); box-shadow: var(--shadow-hover); }
+    .lang-item i { color: var(--accent); font-size: 1.1rem; }
+    .lang-item strong { color: var(--text-primary); font-weight: 700; }
+
+    /* ── Cert cards ── */
+    .cert-card {
+      flex: 0 0 300px;
+      background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius-card);
+      padding: 1.5rem; box-shadow: var(--shadow);
+      display: flex; flex-direction: column; justify-content: space-between; gap: 1.25rem;
+    }
+    .cert-card:hover { border-color: var(--accent); box-shadow: var(--shadow-hover); }
+    .cert-info { display: flex; flex-direction: column; gap: .35rem; }
+    .cert-name { font-size: .95rem; font-weight: 700; line-height: 1.4; color: var(--text-primary); }
+    .cert-provider { font-size: .85rem; font-weight: 500; color: var(--text-muted); text-transform: uppercase; letter-spacing: .02em; }
+    .cert-foot { display: flex; justify-content: flex-end; align-items: center; }
+    .cert-provider-block { display: flex; flex-direction: column; gap: .75rem; }
+    .cert-provider-title {
+      font-size: .95rem; font-weight: 600; color: var(--text-secondary);
+      display: flex; align-items: center; gap: .5rem; margin-top: .5rem;
+    }
+
+    /* ============================================================
+       CTA — SIEMPRE RESALTADO, MÁS COMPACTO
+       ============================================================ */
+    .connect-cta {
+      background: var(--bg-card);
+      border: 2px solid var(--accent);        /* borde siempre visible */
+      border-radius: var(--radius-card);
+      padding: 2rem 2.5rem;                   /* más compacto (antes 3rem) */
+      text-align: center;
+      box-shadow: 0 0 0 4px color-mix(in srgb, var(--accent) 12%, transparent), var(--shadow);
+      display: flex; flex-direction: column; align-items: center; gap: 1rem;
+    }
+    [data-theme="dark"] .connect-cta {
+      box-shadow: 0 0 0 4px rgba(121,192,255,.12), var(--shadow);
+    }
+    .connect-title { font-size: 1.75rem; font-weight: 800; letter-spacing: -.03em; }
+    .connect-desc { font-size: .95rem; color: var(--text-secondary); max-width: 500px; }
+
+    /* ── Footer ── */
+    footer {
+      margin-top: 2rem; padding-top: 2rem; border-top: 1px solid var(--border);
+      display: flex; flex-direction: column; gap: 1rem; text-align: center;
+    }
+    .footer-note { font-size: .85rem; color: var(--text-muted); max-width: 700px; margin: 0 auto; line-height: 1.5; }
+    .footer-brand { font-size: .9rem; font-weight: 700; color: var(--text-secondary); }
+    .footer-legal { font-size: .8rem; color: var(--text-muted); }
+
+    /* ── Responsive ── */
+    @media (max-width: 850px) {
+      .highlight-grid { grid-template-columns: repeat(2,1fr); }
+      .skills-wrapper { grid-template-columns: 1fr; gap: 2rem; }
+      .project-card { flex: 0 0 320px; }
+      .cert-card { flex: 0 0 280px; }
+    }
+    @media (max-width: 600px) {
+      .container { padding: 0 1rem 3rem; gap: 4rem; }
+      .toolbar { padding: .75rem 1rem; }
+      .hero-cover { display: none; }
+      .hero-name { font-size: 2rem; }
+      .highlight-grid { grid-template-columns: 1fr; }
+      .connect-cta { padding: 1.5rem 1rem; }
+      .carousel-outer { margin: 0; padding: 0; }
+      .carousel-btn { display: none !important; }
+    }
+  </style>
+</head>
+
+<!-- Inicio en modo OSCURO por defecto -->
+<body data-theme="dark">
+
+  <nav class="toolbar" role="navigation" aria-label="Controles de página">
+    <button class="btn" id="themeToggle" onclick="toggleTheme()" aria-label="Cambiar tema">
+      <i class="fas fa-sun" id="themeIcon" aria-hidden="true"></i>
+      <span id="themeText">Modo Claro</span>
+    </button>
+    <button class="btn" onclick="toggleLanguage()" aria-label="Cambiar idioma">
+      <i class="fas fa-globe" aria-hidden="true"></i>
+      <span id="langText">EN</span>
+    </button>
+  </nav>
+
+  <main class="container">
+
+    <!-- 1. HERO -->
+    <header class="hero-container" id="hero_section"></header>
+
+    <!-- 2. ABOUT ME -->
+    <section aria-labelledby="sec_profile">
+      <h2 class="section-title">
+        <i class="fas fa-user" aria-hidden="true"></i>
+        <span id="sec_profile"></span>
+      </h2>
+      <p class="about-text" id="profile_desc"></p>
+      <div class="highlight-grid" id="about_highlights"></div>
+    </section>
+
+    <!-- 3. FEATURED PROJECTS -->
+    <section aria-labelledby="sec_projects">
+      <h2 class="section-title">
+        <i class="fas fa-star" aria-hidden="true"></i>
+        <span id="sec_projects"></span>
+      </h2>
+      <div class="carousel-outer">
+        <button class="carousel-btn prev" onclick="scrollCarousel('timeline_projects', -1)" aria-label="Anterior"><i class="fas fa-chevron-left"></i></button>
+        <div class="carousel-track" id="timeline_projects"></div>
+        <button class="carousel-btn next" onclick="scrollCarousel('timeline_projects', 1)" aria-label="Siguiente"><i class="fas fa-chevron-right"></i></button>
+      </div>
+    </section>
+
+    <!-- 4. SKILLS -->
+    <section aria-labelledby="sec_skills_heading">
+      <h2 class="section-title">
+        <i class="fas fa-bolt" aria-hidden="true"></i>
+        <span id="sec_skills_heading"></span>
+      </h2>
+      <div class="skills-wrapper" id="skills_section_wrapper"></div>
+    </section>
+
+    <!-- 5. ENTERPRISE PROJECTS -->
+    <section aria-labelledby="sec_enterprise_projects">
+      <h2 class="section-title">
+        <i class="fas fa-briefcase" aria-hidden="true"></i>
+        <span id="sec_enterprise_projects"></span>
+      </h2>
+      <div class="carousel-outer">
+        <button class="carousel-btn prev" onclick="scrollCarousel('enterprise_projects_track', -1)" aria-label="Anterior"><i class="fas fa-chevron-left"></i></button>
+        <div class="carousel-track" id="enterprise_projects_track"></div>
+        <button class="carousel-btn next" onclick="scrollCarousel('enterprise_projects_track', 1)" aria-label="Siguiente"><i class="fas fa-chevron-right"></i></button>
+      </div>
+    </section>
+
+    <!-- 6. LANGUAGES -->
+    <section aria-labelledby="sec_lang_heading">
+      <h2 class="section-title">
+        <i class="fas fa-language" aria-hidden="true"></i>
+        <span id="sec_lang_heading"></span>
+      </h2>
+      <div class="languages-wrapper" id="languages_section_wrapper"></div>
+    </section>
+
+    <!-- 7. CERTIFICATIONS -->
+    <section aria-labelledby="sec_certs_heading">
+      <h2 class="section-title">
+        <i class="fas fa-certificate" aria-hidden="true"></i>
+        <span id="sec_certs_heading"></span>
+      </h2>
+      <div id="certs_blocks_container" style="display:flex;flex-direction:column;gap:2.5rem;"></div>
+    </section>
+
+    <!-- 8. CTA -->
+    <section id="connect_section"></section>
+
+    <!-- FOOTER -->
+    <footer role="contentinfo" id="site_footer"></footer>
+
+  </main>
+
+  <script>
+  /* ============================================================
+     PORTFOLIO_DATA
+     ============================================================ */
+  const PORTFOLIO_DATA = {
+    meta: {
+      title: "Hugo Cabrera · Data Analytics, Automation & Financial Risk",
+      description: "Data Professional especializado en Data Analytics, Automatización, Ingeniería de Datos y Analítica para Riesgo, Compliance y Operaciones Financieras.",
+      author: "Hugo Andres Cabrera",
+      keywords: "Data Analytics, Data Engineering, Business Analytics, Financial Risk, AML, KYC, Compliance, Transaction Monitoring, Python, SQL, Power BI, Machine Learning, Automation, Colombia",
+      og_title: "Hugo Cabrera · Data Analytics, Automation & Financial Risk"
+    },
+    ui: {
+      tab_hard:              { es: "Hard Skills",         en: "Hard Skills" },
+      tab_soft:              { es: "Soft Skills",         en: "Soft Skills" },
+      title_core_skills:     { es: "Competencias Clave",  en: "Core Competencies" },
+      title_languages:       { es: "Idiomas",             en: "Languages" },
+      title_certs:           { es: "Certificaciones",     en: "Certifications" },
+      title_profile:         { es: "Sobre mi",            en: "About me" },
+      title_projects:        { es: "Proyectos Destacados",en: "Featured Projects" },
+      title_ent_projects:    { es: "Proyectos Empresariales y de Negocio", en: "Enterprise & Business Projects" },
+      lbl_problem:           { es: "Problema:",           en: "Problem:" },
+      lbl_solution:          { es: "Solución:",           en: "Solution:" },
+      lbl_impact:            { es: "Impacto:",            en: "Impact:" },
+      lbl_references:        { es: "Referencias:",        en: "References:" },
+      lbl_case_study:        { es: "Ver Caso de Estudio", en: "View Case Study" },
+      lbl_code_public:       { es: "Código disponible",   en: "Code available" },
+      lbl_code_conf:         { es: "Código confidencial", en: "Confidential code" },
+      theme_light:           { es: "Modo Oscuro",         en: "Dark Mode" },
+      theme_dark:            { es: "Modo Claro",          en: "Light Mode" },
+      footer_note: {
+        es: "La información de contacto completa está disponible con gusto durante procesos de selección.",
+        en: "Full contact details are gladly available during hiring processes."
+      },
+      footer_legal: {
+        es: "Contenido personal protegido. Todos los derechos reservados.",
+        en: "Personal content protected. All rights reserved."
+      },
+      metric_exp:      { es: "Años de Experiencia",   en: "Years of Experience" },
+      metric_certs:    { es: "Certificaciones",        en: "Certifications" },
+      metric_projects: { es: "Proyectos Completados", en: "Projects Completed" },
+      metric_learning: { es: "Siempre Aprendiendo",   en: "Always Learning" },
+      connect_cta_title: { es: "Diseñemos el futuro con datos", en: "Let's build the future with data" },
+      connect_cta_desc:  { es: "Disponible para roles especializados en Ingeniería de Datos y Analítica Avanzada.", en: "Available for specialized roles in Data Engineering and Advanced Analytics." }
+    },
+    contact: {
+      name: "Hugo Cabrera",
+      title: { es: "Data Analytics | Automation | Financial Risk", en: "Data Analytics | Automation | Financial Risk" },
+      /* Imagen de portada (estilo banner de LinkedIn), visible en tablet/desktop.
+         Pon aquí la URL o ruta de tu imagen (ej: "assets/portada.jpg").
+         Si la dejas en null se usa el degradado por defecto. */
+      cover: "/assets/general/banner-linkedIn.jpg",
+      links: [
+        { icon: "fas fa-location-dot", text: "Colombia", url: null },
+        { icon: "fab fa-linkedin",     text: "LinkedIn", url: "https://www.linkedin.com/in/hugo-cabrera-324272191", external: true },
+        { icon: "fab fa-github",       text: "GitHub",   url: "https://github.com/CabHug", external: true },
+        { icon: "fas fa-globe",        text: "Web Portfolio", url: "https://cabhug.github.io/", external: true }
+      ]
+    },
+    profile: {
+      es: "Me apasiona utilizar los datos, la automatización y la Inteligencia Artificial para resolver problemas reales y mejorar la forma en que las organizaciones toman decisiones. Disfruto desarrollar soluciones con Python, SQL y tecnologías de análisis de datos, siempre buscando combinar el conocimiento técnico con las necesidades del negocio. Creo en el aprendizaje continuo y en construir proyectos que generen un impacto tangible.",
+      en: "I'm passionate about using data, automation, and Artificial Intelligence to solve real-world problems and improve the way organizations make decisions. I enjoy developing solutions with Python, SQL, and data technologies while combining technical expertise with business needs. I believe in continuous learning and building projects that create meaningful impact."
+    },
+    hardSkills: [
+      {
+        label_es: "Analítica de Datos", label_en: "Data Analytics",
+        tags: [
+          { name: "Python", highlight: true }, { name: "SQL", highlight: true },
+          { name: "Pandas", highlight: false }, { name: "Numpy", highlight: false },
+          { name: "Power BI", highlight: true }, { name: "Machine Learning", highlight: false },
+          { name: "Reporting", highlight: true }, { name: "KPI", highlight: false },
+          { name: "MatplotLib", highlight: false }, { name: "Seaborn", highlight: false }
+        ]
+      },
+      {
+        label_es: "Ingeniería de Datos", label_en: "Data Engineering",
+        tags: [
+          { name: "PySpark", highlight: true }, { name: "Airflow", highlight: false },
+          { name: "PostgreSQL", highlight: true }, { name: "Data Lake", highlight: false },
+          { name: "ETL / ELT", highlight: true }, { name: "Stratio", highlight: false },
+          { name: "Databricks", highlight: false }
+        ]
+      },
+      {
+        label_es: "Automatización", label_en: "Automation",
+        tags: [
+          { name: "Python", highlight: true }, { name: "Bash", highlight: false },
+          { name: "Linux / Unix", highlight: true }, { name: "Power Automate", highlight: true },
+          { name: "AWS Lambda", highlight: false }, { name: "CI / CD", highlight: false }
+        ]
+      },
+      {
+        label_es: "Riesgo Financiero y Cumplimiento", label_en: "Financial Risk and Compliance",
+        tags: [
+          { name: "AML", highlight: true }, { name: "KYC", highlight: false },
+          { name: "SARLAFT", highlight: true }, { name: "ISO 31000", highlight: false },
+          { name: "ISO 27001", highlight: false }, { name: "Transaction Monitoring", highlight: true }
+        ]
+      }
+    ],
+    softSkills: [
+      { icon: "fas fa-magnifying-glass", name_es: "Resolución Agnóstica de Problemas", name_en: "Agnostic Problem Solving", desc_es: "Identifica la raíz del conflicto sin atarse a una sola herramienta.", desc_en: "Identifies the root of any technical conflict without being tied to a single tool." },
+      { icon: "fas fa-comments", name_es: "Comunicación Asertiva", name_en: "Assertive Communication", desc_es: "Conecta la visión técnica compleja con el impacto corporativo real para distintos stakeholders.", desc_en: "Bridges complex technical vision with real corporate impact for diverse stakeholders." },
+      { icon: "fas fa-gears", name_es: "Liderazgo en Automatización", name_en: "Automation Leadership", desc_es: "Iniciativa para transformar procesos manuales repetitivos en flujos automáticos de alto valor.", desc_en: "Initiative to transform repetitive manual processes into high-value automated workflows." },
+      { icon: "fas fa-earth-americas", name_es: "Adaptabilidad Multicultural", name_en: "Multicultural Adaptability", desc_es: "Experiencia en equipos multidisciplinarios de diversos países en entornos globales de alta exigencia.", desc_en: "Experience collaborating in multidisciplinary teams from different countries in demanding global environments." }
+    ],
+    languages: [
+      { name_es: "Español", name_en: "Spanish", level_es: "Nativo", level_en: "Native" },
+      { name_es: "Inglés",  name_en: "English", level_es: "Avanzado (B2)", level_en: "Advanced (B2)" }
+    ],
+    projects: [
+      {
+        title_es: "Modernización de Infraestructura de Datos y BI",
+        title_en: "Data Infrastructure & BI Modernization",
+        company:  "Centro de Capacitación del Sur (CCS)",
+        problem_es: "La organización dependía de múltiples archivos Excel independientes para gestionar información comercial y operativa. La ausencia de una estructura de datos unificada dificultaba la consolidación de indicadores, generaba duplicidad de información y limitaba la capacidad de realizar análisis estratégicos para apoyar la toma de decisiones.",
+        problem_en: "The organization relied on multiple independent Excel files to manage commercial and operational information. The lack of a unified data structure created duplicated information, limited analytical capabilities and prevented strategic decision-making based on reliable data.",
+        badges: ["Python","OOP","Pandas","PostgreSQL","Power BI","Docker","ERD","Process Automation"],
+        github: "https://github.com/CabHug/CCS_analisys",
+        case_study_id: "ccs-data-modernization",
+        validation:   "public",
+        val_title_es: "Código Público · Validación Disponible en GitHub",
+        val_title_en: "Public Code · Validation Available on GitHub",
+        refs: [{ name: "CCS Pasto", url: "https://centrodecapacitaciondelsur.com/" }]
+      }
+    ],
+    enterprise_projects: [
+      {
+        title_es: "Modelo de Clasificación Automatizada de Tickets",
+        title_en: "Automated Support Ticket Classification Model",
+        company:  "CSG International",
+        problem_es:  "El proceso de clasificación de incidencias dependía del conocimiento de analistas experimentados y requería una revisión manual de cada ticket, generando retrasos operativos y limitando la escalabilidad del proceso.",
+        problem_en:  "The incident classification process relied on experienced analysts and required manual review of every support ticket, creating operational delays and limiting process scalability.",
+        solution_es: "Desarrollé una solución basada en Machine Learning para automatizar la clasificación de tickets mediante técnicas de Procesamiento de Lenguaje Natural (NLP). El proyecto incluyó limpieza de datos, vectorización TF-IDF, entrenamiento de un modelo de Regresión Logística y una interfaz interactiva para facilitar su utilización por parte del equipo operativo.",
+        solution_en: "Developed a Machine Learning solution to automate ticket classification using Natural Language Processing (NLP). The project included data preprocessing, TF-IDF vectorization, Logistic Regression modeling and an interactive interface for operational users.",
+        badges: ["Python","OOP","Pandas","Scikit-Learn","NLP / TF-IDF","TUI / Terminal","Process Automation"],
+        github: null,
+        validation:   "confidential",
+        val_title_es: "Código Confidencial — Validación Disponible Con:",
+        val_title_en: "Confidential Code — Validation Available With:",
+        refs: [
+          { name: "Nathaly Ruiz · CSG",   url: "https://www.linkedin.com/in/nathalyeruizs-705635a4/" },
+          { name: "Swati Sen · CSG",       url: "https://www.linkedin.com/in/swati-sen-pmp%C2%AE-2a23a756/" },
+          { name: "Juan P. Huertas · CSG", url: "https://www.linkedin.com/in/juphuertasme/" }
+        ]
+      },
+      {
+        title_es: "Pipeline Automatizado: Liquidación Masiva de Cuentas",
+        title_en: "Automated Pipeline: Account Closure & Mass Liquidation",
+        company:  "CSG International",
+        problem_es:  "El proceso de liquidación masiva de cuentas requería modificar manualmente scripts SQL en ambientes productivos, incrementando el riesgo operativo, la posibilidad de inconsistencias y el impacto potencial sobre grandes volúmenes de registros.",
+        problem_en:  "Mass account liquidation required manual SQL script modifications in production environments, increasing operational risk, data inconsistencies and the potential impact on large record batches.",
+        solution_es: "Diseñé un pipeline automatizado utilizando Bash, Python y Pandas para extraer, validar y conciliar la información antes de la ejecución. La solución incorporó generación automática de scripts SQL, validaciones previas, auditoría posterior al proceso y un mecanismo Failsafe con Rollback.",
+        solution_en: "Designed an automated pipeline using Bash, Python and Pandas to extract, validate and reconcile data before execution. The solution incorporated automatic SQL generation, pre-execution validations, post-process auditing and a Failsafe rollback mechanism.",
+        badges: ["Python","OOP","Pandas","Bash","SQL","TUI / Terminal","Process Automation"],
+        github: null,
+        validation:   "confidential",
+        val_title_es: "Código Confidencial — Validación Disponible Con:",
+        val_title_en: "Confidential Code — Validation Available With:",
+        refs: [{ name: "Nathaly Ruiz · CSG", url: "https://www.linkedin.com/in/nathalyeruizs-705635a4/" }]
+      },
+      {
+        title_es: "Extracción Distribuida para Auditoría Financiera",
+        title_en: "Distributed Extraction Pipeline for Financial Audit",
+        company:  "CSG International",
+        problem_es:  "El proceso de recuperación de evidencias para auditorías financieras requería búsquedas manuales e iterativas sobre servidores remotos, obligando a realizar múltiples autenticaciones SSH y consumiendo cerca de 40 minutos incluso para pequeños lotes de documentos.",
+        problem_en:  "The financial audit evidence retrieval process relied on repetitive manual searches across remote servers, requiring multiple SSH authentications and taking nearly 40 minutes even for small document batches.",
+        solution_es: "Diseñé una arquitectura distribuida Local–Remoto para automatizar la extracción de documentos financieros. La solución integró una interfaz local desarrollada en Python (TUI) con un agente remoto en Bash ejecutado mediante SFTP/SSH.",
+        solution_en: "Designed a distributed Local–Remote architecture to automate financial document extraction. The solution combined a local Python-based TUI with a remote Bash agent executed through SFTP/SSH.",
+        badges: ["Python","Bash","SFTP/SSH","TUI"],
+        github: null,
+        validation:   "confidential",
+        val_title_es: "Código Confidencial — Validación Disponible Con:",
+        val_title_en: "Confidential Code — Validation Available With:",
+        refs: [
+          { name: "Nathaly Ruiz · CSG",   url: "https://www.linkedin.com/in/nathalyeruizs-705635a4/" },
+          { name: "Juan P. Huertas · CSG", url: "https://www.linkedin.com/in/juphuertasme/" }
+        ]
+      }
+    ],
+    certs: [
+      {
+        id: "cert_platzi",
+        title_es: "Certificaciones Platzi",
+        title_en: "Platzi Certifications",
+        items: [
+          { name_es: "Curso de Python para Ciencia de Datos", name_en: "Python for Data Science Course", url: "https://platzi.com/" },
+          { name_es: "Curso de Power BI", name_en: "Power BI Course", url: "https://platzi.com/" }
+        ]
+      },
+      {
+        id: "cert_uc",
+        title_es: "Certificaciones U. de Catalunya",
+        title_en: "U. de Catalunya Certifications",
+        items: [
+          { name_es: "Estadística Aplicada al Proceso Empresarial", name_en: "Applied Statistics for Business Processes", url: "#" },
+          { name_es: "Gestión de Proyectos en Entornos Ágiles – Énfasis SCRUM", name_en: "Project Management in Agile Environments – SCRUM Emphasis", url: "#" }
+        ]
+      }
+    ]
+  };
+
+  /* ============================================================
+     ESTADO
+     ============================================================ */
+  let currentLang  = localStorage.getItem('lang')  || 'es';
+  let currentTheme = 'dark'; /* OSCURO POR DEFECTO — cada carga/recarga de la página inicia en oscuro */
+
+  /* Guardamos referencia de cada carrusel para poder re-evaluar sus
+     flechas (mostrar/ocultar) al redimensionar la ventana */
+  const carouselRegistry = {}; // trackId -> { items, renderFn }
+
+  /* ============================================================
+     CARRUSEL NORMAL (scroll nativo, sin loop infinito)
+     - Sin clones, sin transform manual, sin listeners de transitionend.
+     - El navegador maneja el scroll y el snap; las flechas solo hacen
+       scrollBy() una tarjeta a la vez.
+     - Si hay pocas tarjetas y ya caben todas en el ancho visible, se
+       centran y se ocultan las flechas (no hay nada que desplazar).
+     - En cuanto no quepan todas, aparece el carrusel normal con sus
+       flechas de desplazamiento.
+     ============================================================ */
+  function renderCarousel(trackId, items, renderFn) {
+    const track = document.getElementById(trackId);
+    if (!track || !items.length) return;
+
+    carouselRegistry[trackId] = { items, renderFn };
+
+    track.innerHTML = items.map(item => renderFn(item, false)).join('');
+    track.scrollLeft = 0;
+
+    updateCarouselArrows(trackId);
+  }
+
+  function updateCarouselArrows(trackId) {
+    const track = document.getElementById(trackId);
+    if (!track) return;
+    const outer   = track.closest('.carousel-outer') || track.parentElement;
+    const prevBtn = outer.querySelector('.carousel-btn.prev');
+    const nextBtn = outer.querySelector('.carousel-btn.next');
+
+    const canScroll = track.scrollWidth > track.clientWidth + 4;
+    if (prevBtn) prevBtn.style.display = canScroll ? '' : 'none';
+    if (nextBtn) nextBtn.style.display = canScroll ? '' : 'none';
+
+    /* Pocas tarjetas que ya caben completas → se centran.
+       Suficientes tarjetas para desbordar → carrusel normal con flechas. */
+    track.classList.toggle('is-centered', !canScroll);
+  }
+
+  function scrollCarousel(trackId, direction) {
+    const track = document.getElementById(trackId);
+    if (!track) return;
+    const firstCard = track.children[0];
+    const cardWidth = firstCard ? firstCard.getBoundingClientRect().width : 300;
+    const cs  = getComputedStyle(track);
+    const gap = parseFloat(cs.columnGap || cs.gap) || 20;
+    track.scrollBy({ left: direction * (cardWidth + gap), behavior: 'smooth' });
+  }
+
+  /* Al cambiar el tamaño de ventana, re-evaluamos si cada carrusel
+     necesita flechas (debounced) */
+  let carouselResizeTimer = null;
+  window.addEventListener('resize', () => {
+    clearTimeout(carouselResizeTimer);
+    carouselResizeTimer = setTimeout(() => {
+      Object.keys(carouselRegistry).forEach(trackId => updateCarouselArrows(trackId));
+    }, 200);
+  });
+
+
+  /* ============================================================
+     RENDER DE BLOQUES DE TARJETA
+     ============================================================ */
+
+  /* Bloque de validación de código */
+  function renderValidation(p) {
+    const isPublic = p.validation === 'public';
+    const valTitle = currentLang === 'es' ? p.val_title_es : p.val_title_en;
+    const icon     = isPublic ? 'fas fa-code-branch' : 'fas fa-lock';
+    const cls      = isPublic ? 'public' : 'confidential';
+    const lbl      = isPublic ? PORTFOLIO_DATA.ui.lbl_code_public[currentLang] : PORTFOLIO_DATA.ui.lbl_code_conf[currentLang];
+    return `
+      <div class="project-validation">
+        <i class="${icon} val-icon ${cls}" aria-hidden="true"></i>
+        <div class="val-text">
+          <span class="val-label">${lbl}</span>
+          <span class="val-title">${valTitle}</span>
+        </div>
+      </div>`;
+  }
+
+  /* Bloque de referencias */
+  function renderProjectRefs(refs) {
+    if (!refs || refs.length === 0) return '';
+    const lbl   = PORTFOLIO_DATA.ui.lbl_references[currentLang];
+    const links = refs.map(r =>
+      `<a href="${r.url}" target="_blank" rel="noopener"><i class="fab fa-linkedin"></i> ${r.name}</a>`
+    ).join('');
+    return `
+      <div class="project-refs">
+        <span class="project-refs-title"><i class="fas fa-user-tie"></i> ${lbl}</span>
+        <div class="project-refs-list">${links}</div>
+      </div>`;
+  }
+
+  /* Render de project-card (usado por renderCarousel) */
+  function renderProjectCard(p, isClone) {
+    const title    = currentLang === 'es' ? p.title_es : p.title_en;
+    const problem  = currentLang === 'es' ? p.problem_es : p.problem_en;
+    const solution = currentLang === 'es' ? (p.solution_es || '') : (p.solution_en || '');
+
+    const githubBtn    = p.github
+      ? `<a href="${p.github}" target="_blank" class="btn"><i class="fab fa-github"></i>GitHub</a>` : '';
+    const caseStudyBtn = p.case_study_id
+      ? `<a href="case-study.html?id=${p.case_study_id}" class="btn btn-primary"><i class="fas fa-file-alt"></i>${PORTFOLIO_DATA.ui.lbl_case_study[currentLang]}</a>` : '';
+
+    const validationBlock = p.validation ? renderValidation(p) : '';
+    const refsBlock       = renderProjectRefs(p.refs);
+
+    return `
+      <div class="project-card" aria-hidden="${isClone}">
+        <div class="project-header">
+          <span class="project-company">${p.company}</span>
+          <h3 class="project-title">${title}</h3>
+        </div>
+        <div class="project-body">
+          <p>${problem}</p>
+          ${solution ? `<p><strong>${PORTFOLIO_DATA.ui.lbl_solution[currentLang]}</strong> ${solution}</p>` : ''}
+          ${validationBlock}
+          ${refsBlock}
+        </div>
+        <div class="badges-container">${p.badges.map(b => `<span class="badge">${b}</span>`).join('')}</div>
+        <div class="project-actions">${githubBtn}${caseStudyBtn}</div>
+      </div>`;
+  }
+
+  /* Render de cert-card */
+  function renderCertCard(i, isClone, providerLabel) {
+    const name = currentLang === 'es' ? i.name_es : i.name_en;
+    return `
+      <div class="cert-card" aria-hidden="${isClone}">
+        <div class="cert-info">
+          <span class="cert-name">${name}</span>
+          <span class="cert-provider"><i class="fas fa-building" style="margin-right:.3rem"></i>${providerLabel}</span>
+        </div>
+        <div class="cert-foot">
+          <a href="${i.url}" target="_blank" rel="noopener" class="btn btn-primary" style="padding:.35rem .75rem;font-size:.8rem">
+            <i class="fas fa-external-link-alt"></i> Link
+          </a>
+        </div>
+      </div>`;
+  }
+
+  /* ============================================================
+     RENDER PRINCIPAL
+     ============================================================ */
+  function renderPortfolio() {
+    document.body.setAttribute('data-theme', currentTheme);
+    document.getElementById('themeIcon').className = currentTheme === 'dark' ? 'fas fa-sun' : 'fas fa-moon';
+    document.getElementById('themeText').textContent = currentTheme === 'dark'
+      ? PORTFOLIO_DATA.ui.theme_dark[currentLang]
+      : PORTFOLIO_DATA.ui.theme_light[currentLang];
+    document.getElementById('langText').textContent = currentLang === 'es' ? 'EN' : 'ES';
+
+    /* 1. HERO */
+    const hero = document.getElementById('hero_section');
+    const linksHtml = PORTFOLIO_DATA.contact.links.map(l =>
+      `<a ${l.url ? `href="${l.url}" target="_blank"` : ''} class="btn"><i class="${l.icon}"></i><span>${l.text}</span></a>`
+    ).join('');
+    const coverUrl  = PORTFOLIO_DATA.contact.cover;
+    const coverHtml = `<div class="hero-cover">${coverUrl
+      ? `<img src="${coverUrl}" alt="${PORTFOLIO_DATA.contact.name}" class="hero-cover-img">`
+      : ''}</div>`;
+    hero.innerHTML = `
+      ${coverHtml}
+      <h1 class="hero-name">${PORTFOLIO_DATA.contact.name}</h1>
+      <p class="hero-title">${PORTFOLIO_DATA.contact.title[currentLang]}</p>
+      <div class="hero-links">${linksHtml}</div>`;
+
+    /* 2. ABOUT */
+    document.getElementById('sec_profile').textContent = PORTFOLIO_DATA.ui.title_profile[currentLang];
+    document.getElementById('profile_desc').textContent = PORTFOLIO_DATA.profile[currentLang];
+    document.getElementById('about_highlights').innerHTML = `
+      <div class="highlight-card"><span class="highlight-val">4+</span><span class="highlight-lbl">${PORTFOLIO_DATA.ui.metric_exp[currentLang]}</span></div>
+      <div class="highlight-card"><span class="highlight-val">20+</span><span class="highlight-lbl">${PORTFOLIO_DATA.ui.metric_certs[currentLang]}</span></div>
+      <div class="highlight-card"><span class="highlight-val">5+</span><span class="highlight-lbl">${PORTFOLIO_DATA.ui.metric_projects[currentLang]}</span></div>
+      <div class="highlight-card"><span class="highlight-val"><i class="fas fa-graduation-cap"></i></span><span class="highlight-lbl">${PORTFOLIO_DATA.ui.metric_learning[currentLang]}</span></div>`;
+
+    /* 3. FEATURED PROJECTS — carrusel */
+    document.getElementById('sec_projects').textContent = PORTFOLIO_DATA.ui.title_projects[currentLang];
+    renderCarousel('timeline_projects', PORTFOLIO_DATA.projects,
+      (p, isClone) => renderProjectCard(p, isClone));
+
+    /* 4. SKILLS */
+    document.getElementById('sec_skills_heading').textContent = PORTFOLIO_DATA.ui.title_core_skills[currentLang];
+    const hardHtml = PORTFOLIO_DATA.hardSkills.map(s => `
+      <div class="skill-group-container">
+        <span class="skill-group-label">${currentLang === 'es' ? s.label_es : s.label_en}</span>
+        <div class="skill-tags">${s.tags.map(t => `<span class="skill-tag${t.highlight ? ' highlight' : ''}">${t.name}</span>`).join('')}</div>
+      </div>`).join('');
+    const softHtml = PORTFOLIO_DATA.softSkills.map(s => `
+      <div class="soft-card">
+        <i class="${s.icon}"></i>
+        <div class="soft-card-content">
+          <span class="soft-card-title">${currentLang === 'es' ? s.name_es : s.name_en}</span>
+          <span class="soft-card-desc">${currentLang === 'es' ? s.desc_es : s.desc_en}</span>
+        </div>
+      </div>`).join('');
+    document.getElementById('skills_section_wrapper').innerHTML = `
+      <div class="skill-card">
+        <h3 class="skills-subtitle"><i class="fas fa-laptop-code"></i> ${PORTFOLIO_DATA.ui.tab_hard[currentLang]}</h3>
+        ${hardHtml}
+      </div>
+      <div class="skill-card">
+        <h3 class="skills-subtitle"><i class="fas fa-users"></i> ${PORTFOLIO_DATA.ui.tab_soft[currentLang]}</h3>
+        <div class="soft-card-grid">${softHtml}</div>
+      </div>`;
+
+    /* 5. ENTERPRISE PROJECTS — carrusel */
+    document.getElementById('sec_enterprise_projects').textContent = PORTFOLIO_DATA.ui.title_ent_projects[currentLang];
+    renderCarousel('enterprise_projects_track', PORTFOLIO_DATA.enterprise_projects,
+      (p, isClone) => renderProjectCard(p, isClone));
+
+    /* 6. LANGUAGES */
+    document.getElementById('sec_lang_heading').textContent = PORTFOLIO_DATA.ui.title_languages[currentLang];
+    document.getElementById('languages_section_wrapper').innerHTML = PORTFOLIO_DATA.languages.map(l => `
+      <div class="lang-item">
+        <i class="fas fa-check-circle"></i>
+        <span><strong>${currentLang === 'es' ? l.name_es : l.name_en}:</strong> ${currentLang === 'es' ? l.level_es : l.level_en}</span>
+      </div>`).join('');
+
+    /* 7. CERTS — carruseles por bloque */
+    document.getElementById('sec_certs_heading').textContent = PORTFOLIO_DATA.ui.title_certs[currentLang];
+    const certsContainer = document.getElementById('certs_blocks_container');
+    certsContainer.innerHTML = PORTFOLIO_DATA.certs.map(c => {
+      const providerLabel = currentLang === 'es' ? c.title_es : c.title_en;
+      return `
+        <div class="cert-provider-block">
+          <h3 class="cert-provider-title">
+            <i class="fas fa-award" style="color:var(--accent)"></i>
+            ${providerLabel}
+          </h3>
+          <div class="carousel-outer">
+            <button class="carousel-btn prev" onclick="scrollCarousel('track_${c.id}', -1)" aria-label="Anterior"><i class="fas fa-chevron-left"></i></button>
+            <div class="carousel-track" id="track_${c.id}"></div>
+            <button class="carousel-btn next" onclick="scrollCarousel('track_${c.id}', 1)" aria-label="Siguiente"><i class="fas fa-chevron-right"></i></button>
+          </div>
+        </div>`;
+    }).join('');
+
+    /* Inicializar carruseles de certs después de inyectar el DOM */
+    requestAnimationFrame(() => {
+      PORTFOLIO_DATA.certs.forEach(c => {
+        const label = currentLang === 'es' ? c.title_es : c.title_en;
+        renderCarousel('track_' + c.id, c.items,
+          (item, isClone) => renderCertCard(item, isClone, label));
+      });
+    });
+
+    /* 8. CTA */
+    document.getElementById('connect_section').innerHTML = `
+      <div class="connect-cta">
+        <h2 class="connect-title">${PORTFOLIO_DATA.ui.connect_cta_title[currentLang]}</h2>
+        <p class="connect-desc">${PORTFOLIO_DATA.ui.connect_cta_desc[currentLang]}</p>
+      </div>`;
+
+    /* FOOTER */
+    document.getElementById('site_footer').innerHTML = `
+      <p class="footer-note">${PORTFOLIO_DATA.ui.footer_note[currentLang]}</p>
+      <p class="footer-brand">${PORTFOLIO_DATA.contact.name} · Data Solutions</p>
+      <p class="footer-legal">${PORTFOLIO_DATA.ui.footer_legal[currentLang]}</p>`;
+  }
+
+  function toggleTheme() {
+    currentTheme = currentTheme === 'light' ? 'dark' : 'light';
+    renderPortfolio();
+  }
+
+  function toggleLanguage() {
+    currentLang = currentLang === 'es' ? 'en' : 'es';
+    localStorage.setItem('lang', currentLang);
+    renderPortfolio();
+  }
+
+  document.addEventListener('DOMContentLoaded', renderPortfolio);
+  </script>
+</body>
+</html>

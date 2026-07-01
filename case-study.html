@@ -1,0 +1,469 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" id="cs_meta_description" content="">
+  <meta name="author" content="Hugo Andres Cabrera">
+  <title id="cs_page_title">Case Study</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <!-- Mermaid for architecture diagrams -->
+  <script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
+
+  <style>
+    /* ============================================================
+       VARIABLES
+       ============================================================ */
+    :root {
+      --bg-main:        #f0f4f8;
+      --bg-card:        #ffffff;
+      --text-primary:   #1e293b;
+      --text-secondary: #475569;
+      --text-muted:     #64748b;
+      --accent:         #1d4ed8;
+      --accent-hover:   #1e40af;
+      --border:         #cbd5e1;
+      --badge-bg:       #dbeafe;
+      --badge-text:     #1d4ed8;
+      --skill-bar-fill: linear-gradient(90deg, #1d4ed8, #60a5fa);
+      --shadow:         0 4px 6px -1px rgba(29,78,216,.08), 0 2px 4px -1px rgba(29,78,216,.05);
+      --shadow-hover:   0 10px 15px -3px rgba(29,78,216,.12), 0 4px 6px -2px rgba(29,78,216,.06);
+    }
+    [data-theme="dark"] {
+      --bg-main:        #0f172a;
+      --bg-card:        #1e293b;
+      --text-primary:   #f8fafc;
+      --text-secondary: #cbd5e1;
+      --text-muted:     #94a3b8;
+      --accent:         #38bdf8;
+      --accent-hover:   #7dd3fc;
+      --border:         #334155;
+      --badge-bg:       rgba(56,189,248,.15);
+      --badge-text:     #38bdf8;
+      --skill-bar-fill: linear-gradient(90deg, #1d4ed8, #38bdf8);
+      --shadow:         0 4px 6px -1px rgba(0,0,0,.25);
+      --shadow-hover:   0 10px 15px -3px rgba(0,0,0,.35);
+    }
+
+    *, *::before, *::after {
+      margin: 0; padding: 0; box-sizing: border-box;
+      transition: background-color .3s, color .3s, border-color .3s;
+    }
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      background: var(--bg-main);
+      color: var(--text-primary);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ── Toolbar ── */
+    .toolbar {
+      position: sticky; top: 0; z-index: 100;
+      background: var(--bg-main);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--border);
+      padding: .875rem 2rem;
+      display: flex; justify-content: space-between; align-items: center; gap: .75rem;
+    }
+    .toolbar-left  { display: flex; align-items: center; gap: .75rem; }
+    .toolbar-right { display: flex; align-items: center; gap: .75rem; }
+
+    /* ── Buttons ── */
+    .btn {
+      background: var(--bg-card); color: var(--text-primary);
+      border: 1px solid var(--border); padding: .5rem 1rem;
+      border-radius: 8px; font-family: inherit; font-weight: 600;
+      font-size: .875rem; cursor: pointer;
+      display: inline-flex; align-items: center; gap: .5rem;
+      box-shadow: var(--shadow); text-decoration: none; white-space: nowrap;
+    }
+    .btn:hover { border-color: var(--accent); color: var(--accent); transform: translateY(-1px); text-decoration: none; }
+    .btn-primary { background: var(--accent); color: #fff; border: none; }
+    .btn-primary:hover { background: var(--accent-hover); color: #fff; transform: translateY(-1px); }
+
+    /* ── Layout ── */
+    .cs-container {
+      max-width: 900px;
+      margin: 2.5rem auto;
+      padding: 0 2rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+
+    /* ── Banner ── */
+    .cs-banner {
+      border-radius: 16px; overflow: hidden;
+      box-shadow: var(--shadow); border: 1px solid var(--border);
+    }
+    .cs-banner img {
+      width: 100%; display: block;
+      max-height: 260px; object-fit: cover; object-position: center;
+    }
+
+    /* ── Hero ── */
+    .cs-hero {
+      background: var(--bg-card); border-radius: 16px;
+      padding: 2.25rem; border: 1px solid var(--border); box-shadow: var(--shadow);
+    }
+    .cs-hero-meta {
+      display: flex; flex-wrap: wrap; gap: .45rem; margin-bottom: 1rem;
+    }
+    .cs-company-tag, .cs-meta-pill {
+      display: inline-flex; align-items: center; gap: .4rem;
+      background: var(--badge-bg); color: var(--badge-text);
+      padding: .22rem .65rem; border-radius: 6px;
+      font-size: .73rem; font-weight: 700; letter-spacing: .02em;
+    }
+    .cs-title {
+      font-size: 2rem; font-weight: 800; line-height: 1.2; margin-bottom: .75rem;
+      background: var(--skill-bar-fill);
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+    }
+    .cs-summary { color: var(--text-secondary); font-size: .95rem; line-height: 1.75; }
+
+    /* ── Highlights strip ── */
+    .cs-highlights {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+      gap: 1rem;
+    }
+    .cs-highlight-card {
+      background: var(--bg-card); border: 1px solid var(--border);
+      border-radius: 14px; padding: 1.25rem 1rem;
+      display: flex; flex-direction: column; align-items: center; gap: .3rem;
+      box-shadow: var(--shadow); text-align: center;
+    }
+    .cs-highlight-value {
+      font-size: 1.9rem; font-weight: 800;
+      background: var(--skill-bar-fill);
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+    }
+    .cs-highlight-label {
+      font-size: .72rem; font-weight: 700;
+      color: var(--text-muted); text-transform: uppercase; letter-spacing: .06em;
+    }
+
+    /* ── Content cards ── */
+    .cs-section {
+      background: var(--bg-card); border-radius: 16px;
+      padding: 2rem 2.25rem; border: 1px solid var(--border); box-shadow: var(--shadow);
+    }
+    .section-title {
+      font-size: 1.05rem; font-weight: 700; color: var(--text-primary);
+      margin-bottom: 1.25rem; display: flex; align-items: center; gap: .5rem;
+    }
+    .section-title i { color: var(--accent); }
+
+    /* ── Body text ── */
+    .cs-body-text { color: var(--text-secondary); font-size: .92rem; line-height: 1.8; }
+    .cs-gallery-desc { margin-bottom: 1rem; }
+
+    /* ── Bullet list ── */
+    .cs-list { list-style: none; display: flex; flex-direction: column; gap: .65rem; }
+    .cs-list li {
+      display: flex; align-items: flex-start; gap: .75rem;
+      color: var(--text-secondary); font-size: .9rem; line-height: 1.65;
+    }
+    .cs-list-icon { color: var(--accent); font-size: .85rem; margin-top: .2rem; flex-shrink: 0; }
+    .cs-ref-link { color: var(--accent); text-decoration: none; font-weight: 600; }
+    .cs-ref-link:hover { text-decoration: underline; }
+
+    /* ── Tech badges ── */
+    .cs-badges { display: flex; flex-wrap: wrap; gap: .45rem; }
+    .cs-badge {
+      background: var(--badge-bg); color: var(--badge-text);
+      padding: .25rem .75rem; border-radius: 6px; font-size: .78rem; font-weight: 700;
+      border: 1px solid transparent; transition: all .15s;
+    }
+    .cs-badge:hover { border-color: var(--accent); transform: translateY(-1px); }
+
+    /* ── Mermaid ── */
+    .cs-mermaid-wrapper {
+      background: var(--bg-main); border: 1px solid var(--border);
+      border-radius: 12px; padding: 1.5rem; overflow-x: auto; text-align: center;
+    }
+    .cs-mermaid-wrapper .mermaid { display: inline-block; min-width: 200px; }
+
+    /* ── Metrics grid ── */
+    .cs-metrics-grid {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(110px, 1fr)); gap: 1rem;
+    }
+    .cs-metric-card {
+      background: var(--bg-main); border: 1px solid var(--border);
+      border-radius: 12px; padding: 1rem .75rem;
+      display: flex; flex-direction: column; align-items: center; gap: .3rem; text-align: center;
+    }
+    .cs-metric-value {
+      font-size: 1.6rem; font-weight: 800;
+      background: var(--skill-bar-fill);
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+    }
+    .cs-metric-label {
+      font-size: .7rem; font-weight: 700;
+      color: var(--text-muted); text-transform: uppercase; letter-spacing: .05em;
+    }
+
+    /* ═══════════════════════════════════════════════════════
+       GALLERY
+       ═══════════════════════════════════════════════════════ */
+    .cs-gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+      gap: 1rem;
+    }
+
+    /* Hidden extra images */
+    .cs-gallery-extra {
+      display: none;
+    }
+    .cs-gallery-extra-visible {
+      display: block;
+      animation: fadeUp .3s ease both;
+    }
+
+    .cs-gallery-item {
+      border-radius: 12px; overflow: hidden;
+      border: 1px solid var(--border);
+      background: var(--bg-main);
+      transition: box-shadow .2s, transform .2s;
+    }
+    .cs-gallery-item:hover { box-shadow: var(--shadow-hover); transform: translateY(-2px); }
+
+    .cs-gallery-img-wrap {
+      position: relative; overflow: hidden;
+      aspect-ratio: 16/10;
+      background: var(--bg-main);
+    }
+    .cs-gallery-img {
+      width: 100%; height: 100%; object-fit: cover; display: block;
+      cursor: zoom-in;
+      transition: transform .3s ease;
+    }
+    .cs-gallery-item:hover .cs-gallery-img { transform: scale(1.03); }
+
+    .cs-gallery-overlay {
+      position: absolute; inset: 0;
+      background: rgba(29,78,216,.15);
+      display: flex; align-items: center; justify-content: center;
+      opacity: 0; transition: opacity .2s;
+    }
+    .cs-gallery-overlay i { color: #fff; font-size: 1.4rem; }
+    .cs-gallery-item:hover .cs-gallery-overlay { opacity: 1; }
+
+    .cs-gallery-caption {
+      padding: .65rem .85rem .55rem;
+      display: flex; flex-direction: column; gap: .15rem;
+    }
+    .cs-gallery-caption strong {
+      font-size: .82rem; font-weight: 700; color: var(--text-primary);
+    }
+    .cs-gallery-caption span {
+      font-size: .74rem; color: var(--text-muted);
+    }
+
+    .cs-gallery-counter {
+      display: block; text-align: right;
+      font-size: .68rem; font-weight: 700;
+      color: var(--text-muted); padding: 0 .85rem .5rem;
+      letter-spacing: .04em;
+    }
+
+    /* Gallery toggle button */
+    .cs-gallery-toggle {
+      margin-top: 1rem; width: 100%; justify-content: center;
+      border-color: var(--accent); color: var(--accent);
+      background: var(--badge-bg);
+    }
+    .cs-gallery-toggle:hover { background: var(--accent); color: #fff; }
+    .cs-toggle-chevron { transition: transform .25s ease; }
+
+    /* ═══════════════════════════════════════════════════════
+       LIGHTBOX
+       ═══════════════════════════════════════════════════════ */
+    .cs-lightbox {
+      display: none; position: fixed; inset: 0; z-index: 1000;
+      align-items: center; justify-content: center;
+    }
+    .cs-lightbox-open { display: flex; }
+
+    .cs-lightbox-backdrop {
+      position: absolute; inset: 0;
+      background: rgba(15,23,42,.88);
+      backdrop-filter: blur(6px);
+    }
+    .cs-lightbox-inner {
+      position: relative; z-index: 1;
+      max-width: 92vw;
+      display: flex; flex-direction: column; align-items: center; gap: .75rem;
+    }
+    .cs-lightbox-close {
+      position: absolute; top: -2.5rem; right: 0;
+      background: rgba(255,255,255,.12); border: 1px solid rgba(255,255,255,.2);
+      border-radius: 50%; width: 2rem; height: 2rem;
+      color: #fff; font-size: 1rem; cursor: pointer;
+      display: flex; align-items: center; justify-content: center;
+      transition: background .15s, transform .15s;
+    }
+    .cs-lightbox-close:hover { background: rgba(255,255,255,.25); transform: scale(1.12); }
+
+    /* Nav row: prev | image | next */
+    .cs-lightbox-nav {
+      display: flex; align-items: center; gap: .75rem;
+    }
+    .cs-lightbox-prev,
+    .cs-lightbox-next {
+      background: rgba(255,255,255,.12); border: 1px solid rgba(255,255,255,.2);
+      border-radius: 50%; width: 2.4rem; height: 2.4rem; flex-shrink: 0;
+      color: #fff; font-size: .95rem; cursor: pointer;
+      display: flex; align-items: center; justify-content: center;
+      transition: background .15s, transform .15s;
+    }
+    .cs-lightbox-prev:hover,
+    .cs-lightbox-next:hover { background: rgba(255,255,255,.28); transform: scale(1.1); }
+
+    .cs-lightbox-img {
+      max-width: min(82vw, 960px); max-height: 74vh;
+      border-radius: 12px; object-fit: contain;
+      box-shadow: 0 25px 60px rgba(0,0,0,.55);
+      transition: opacity .2s ease;
+      cursor: default;
+    }
+
+    /* Info row */
+    .cs-lightbox-info {
+      text-align: center; color: #fff;
+      display: flex; flex-direction: column; align-items: center; gap: .25rem;
+    }
+    .cs-lightbox-title   { font-size: .92rem; font-weight: 700; }
+    .cs-lightbox-caption { font-size: .8rem; opacity: .72; }
+
+    /* Dot indicators */
+    .cs-lightbox-dots {
+      display: flex; gap: .4rem; margin-top: .1rem;
+    }
+    .cs-lb-dot {
+      width: .45rem; height: .45rem; border-radius: 50%;
+      background: rgba(255,255,255,.35); transition: background .2s, transform .2s;
+    }
+    .cs-lb-dot-active {
+      background: #fff; transform: scale(1.3);
+    }
+
+    @media (max-width: 600px) {
+      .cs-lightbox-prev,
+      .cs-lightbox-next { width: 2rem; height: 2rem; font-size: .8rem; }
+      .cs-lightbox-img  { max-width: 96vw; max-height: 65vh; }
+    }
+
+    /* ── Back CTA ── */
+    .cs-cta-bottom { display: flex; justify-content: center; padding-bottom: 1rem; }
+
+    /* ── Not Found ── */
+    .cs-not-found {
+      display: flex; flex-direction: column; align-items: center; justify-content: center;
+      min-height: 60vh; text-align: center; gap: 1.25rem; padding: 3rem 2rem;
+    }
+    .cs-not-found-icon { font-size: 3.5rem; color: var(--accent); opacity: .5; }
+    .cs-not-found h1 { font-size: 1.5rem; font-weight: 800; color: var(--text-primary); }
+    .cs-not-found p { color: var(--text-secondary); font-size: .92rem; max-width: 400px; line-height: 1.7; }
+
+    /* ── Loading ── */
+    .cs-loading {
+      display: flex; align-items: center; justify-content: center;
+      gap: .75rem; min-height: 50vh; color: var(--text-muted);
+      font-size: .9rem; font-weight: 600;
+    }
+    .cs-loading i { color: var(--accent); animation: spin 1s linear infinite; }
+    @keyframes spin { to { transform: rotate(360deg); } }
+
+    /* ── Animations ── */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(12px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    .cs-fade { animation: fadeUp .45s ease both; }
+    .cs-fade:nth-child(2)  { animation-delay: .05s; }
+    .cs-fade:nth-child(3)  { animation-delay: .10s; }
+    .cs-fade:nth-child(4)  { animation-delay: .15s; }
+    .cs-fade:nth-child(5)  { animation-delay: .20s; }
+    .cs-fade:nth-child(6)  { animation-delay: .25s; }
+    .cs-fade:nth-child(7)  { animation-delay: .30s; }
+    .cs-fade:nth-child(8)  { animation-delay: .35s; }
+    .cs-fade:nth-child(9)  { animation-delay: .40s; }
+    .cs-fade:nth-child(10) { animation-delay: .45s; }
+
+    /* ── Footer ── */
+    footer {
+      margin-top: 2rem; padding: 1.5rem 2rem;
+      border-top: 1px solid var(--border);
+      text-align: center; color: var(--text-muted);
+      font-size: .78rem; font-weight: 600; letter-spacing: .02em;
+    }
+    footer span { color: var(--accent); }
+
+    /* ── Responsive ── */
+    @media (max-width: 700px) {
+      .cs-container { margin: 1rem auto; padding: 0 1rem; }
+      .cs-hero { padding: 1.5rem; }
+      .cs-section { padding: 1.5rem; }
+      .cs-title { font-size: 1.45rem; }
+      .toolbar { padding: .75rem 1rem; }
+      .toolbar-left .btn span,
+      .toolbar-right .btn span { display: none; }
+      .cs-gallery { grid-template-columns: 1fr; }
+      .cs-highlights { grid-template-columns: repeat(2, 1fr); }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .cs-fade,
+      .cs-gallery-extra-visible { animation: none; }
+      .cs-gallery-img,
+      .cs-gallery-overlay,
+      .cs-toggle-chevron { transition: none; }
+    }
+  </style>
+</head>
+<body data-theme="light">
+
+  <!-- ── Toolbar ── -->
+  <div class="toolbar" role="navigation" aria-label="Controles de página">
+    <div class="toolbar-left">
+      <a href="index.html" class="btn" id="btn_back" aria-label="Volver al portafolio">
+        <i class="fas fa-arrow-left" aria-hidden="true"></i>
+        <span id="btn_back_text">Portafolio</span>
+      </a>
+    </div>
+    <div class="toolbar-right">
+      <button class="btn" id="themeToggle" onclick="toggleTheme()" aria-label="Cambiar tema">
+        <i class="fas fa-moon" id="themeIcon" aria-hidden="true"></i>
+        <span id="themeText">Modo Oscuro</span>
+      </button>
+      <button class="btn" onclick="toggleLanguage()" aria-label="Cambiar idioma">
+        <i class="fas fa-globe" aria-hidden="true"></i>
+        <span id="langText">EN</span>
+      </button>
+    </div>
+  </div>
+
+  <!-- ── Main content: injected by case-study.js ── -->
+  <div class="cs-container" id="cs_root">
+    <div class="cs-loading">
+      <i class="fas fa-circle-notch" aria-hidden="true"></i>
+      <span id="loading_text">Cargando caso de estudio…</span>
+    </div>
+  </div>
+
+  <footer id="cs_footer">
+    <span>Hugo Cabrera</span> · Data Solutions
+  </footer>
+
+  <script src="case-study.js"></script>
+</body>
+</html>

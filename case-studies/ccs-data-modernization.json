@@ -1,0 +1,348 @@
+{
+  "id": "ccs-data-modernization",
+
+  "metadata": {
+    "date": "2025",
+    "company": "CCS",
+    "status": "Completed",
+    "category": "Data Engineering & Business Intelligence",
+    "duration": "7 Months",
+    "confidential": false
+  },
+
+  "hero": {
+    "title_es": "Modernización de Infraestructura de Datos y Business Intelligence",
+    "title_en": "Data Infrastructure & Business Intelligence Modernization",
+
+    "subtitle_es": "Data Engineering • ETL • PostgreSQL • Docker • Power BI",
+    "subtitle_en": "Data Engineering • ETL • PostgreSQL • Docker • Power BI",
+
+    "cover": "/assets/general/banner-linkedIn.jpg",
+
+    "summary_es": "Diseño e implementación de una plataforma de datos para reemplazar un ecosistema basado en archivos Excel heterogéneos por una arquitectura centralizada con gobierno de datos, procesos ETL automatizados, base de datos PostgreSQL y tableros ejecutivos en Power BI.",
+
+    "summary_en": "Designed and implemented a modern data platform that replaced heterogeneous Excel files with a centralized architecture featuring data governance, automated ETL pipelines, PostgreSQL and executive Power BI dashboards."
+  },
+
+  "sections": [
+
+    {
+      "type": "text",
+
+      "id": "business-context",
+
+      "title_es": "Contexto del Negocio",
+
+      "title_en": "Business Context",
+
+      "content_es": "La empresa almacenaba toda su información comercial en archivos Excel generados durante varios años. Cada período utilizaba estructuras diferentes, nombres de columnas inconsistentes y formatos no estandarizados, dificultando el análisis histórico, la integración de datos y la generación de indicadores confiables para la toma de decisiones.",
+
+      "content_en": "The company stored all commercial information in Excel files created over several years. Each period used different structures, inconsistent column names and non-standard formats, making historical analysis, data integration and reliable reporting extremely difficult."
+    },
+
+    {
+      "type": "text",
+
+      "id": "problem",
+
+      "title_es": "Problema",
+
+      "title_en": "Problem",
+
+      "content_es": "La ausencia de un modelo de datos estandarizado impedía consolidar la información histórica. Los procesos dependían completamente de hojas de cálculo aisladas, sin reglas de validación, sin gobierno de datos y sin una base centralizada para realizar consultas o construir dashboards de forma confiable.",
+
+      "content_en": "The lack of a standardized data model prevented historical consolidation. Business processes relied entirely on isolated spreadsheets with no validation rules, no data governance and no centralized database for reliable reporting or analytics."
+    },
+
+    {
+      "type": "text",
+
+      "id": "solution",
+
+      "title_es": "Solución",
+
+      "title_en": "Solution",
+
+      "content_es": "Se diseñó una solución integral de modernización de datos compuesta por un módulo orquestado mediante Docker. El modulo automatiza la validación, limpieza, normalización y transformación de archivos Excel utilizando Python y Pandas para generar datasets consistentes en formato CSV. Tambien permite actualizar automáticamente un modelo relacional implementado en PostgreSQL, permitiendo centralizar toda la información histórica y alimentar dashboards ejecutivos desarrollados en Power BI.",
+
+      "content_en": "Designed an end-to-end data modernization platform composed of one Docker-orchestrated module. The module automates Excel validation, cleansing, normalization and transformation using Python and Pandas to generate standardized CSV datasets. Also automatically updates a PostgreSQL relational model, centralizing historical information and powering executive Power BI dashboards."
+    },
+
+    {
+      "type": "gallery",
+
+      "id": "architecture",
+
+      "title_es": "Arquitectura de la Solución",
+
+      "title_en": "Solution Architecture",
+
+      "description_es": "Arquitectura implementada para la plataforma de datos.",
+
+      "description_en": "Architecture implemented for the data platform.",
+
+      "items": [
+
+        {
+          "image": "/assets/Portfolio/ccs-data-modernization/Architecture_ccs.jpg",
+
+          "title_es": "Arquitectura General",
+
+          "title_en": "Overall Architecture",
+
+          "caption_es": "Flujo completo desde archivos Excel hasta Power BI.",
+
+          "caption_en": "End-to-end flow from Excel files to Power BI."
+        }
+      ]
+    },
+
+    {
+      "type": "gallery",
+
+      "id": "implementation",
+
+      "title_es": "Implementación",
+
+      "title_en": "Implementation",
+
+      "description_es": "Proceso automatizado de transformación y carga de datos.",
+
+      "description_en": "Automated data transformation and loading process.",
+
+      "items": [
+
+        {
+          "image": "/assets/Portfolio/ccs-data-modernization/Docker_ccs_container.png",
+
+          "title_es": "Orquestación",
+
+          "title_en": "Docker Orchestration",
+
+          "caption_es": "Módulo desplegado mediante Docker.",
+
+          "caption_en": "Independent module orchestrated using Docker."
+        },
+
+        {
+          "image": "/assets/Portfolio/ccs-data-modernization/Docker_ccs_container2.png",
+
+          "title_es": "Orquestación",
+
+          "title_en": "Docker Orchestration",
+
+          "caption_es": "Módulo independiente desplegado mediante Docker.",
+
+          "caption_en": "Independent module orchestrated using Docker."
+        },
+
+        {
+          "image": "/assets/Portfolio/ccs-data-modernization/Data_Model_PowerBI.png",
+
+          "title_es": "Power BI Modelo de Datos",
+
+          "title_en": "Power BI Data Model",
+
+          "caption_es": "Modelo de datos implementado en Power BI.",
+
+          "caption_en": "Data model implemented on Power BI."
+        }
+
+      ]
+    },
+
+    {
+      "type": "list",
+
+      "id": "challenges",
+
+      "title_es": "Retos Técnicos",
+
+      "title_en": "Technical Challenges",
+
+      "items_es": [
+
+        "Normalizar archivos históricos con estructuras diferentes entre años.",
+
+        "Diseñar reglas de validación para garantizar la calidad de los datos.",
+
+        "Construir un modelo relacional que soportara el crecimiento futuro de la información.",
+
+        "Automatizar la actualización de PostgreSQL minimizando la intervención manual.",
+
+        "Garantizar compatibilidad entre el proceso ETL y los dashboards de Power BI."
+
+      ],
+
+      "items_en": [
+
+        "Normalize historical Excel files with different structures.",
+
+        "Design validation rules to ensure data quality.",
+
+        "Build a scalable relational model.",
+
+        "Automate PostgreSQL updates.",
+
+        "Ensure compatibility between ETL processes and Power BI dashboards."
+
+      ]
+    },
+
+    {
+      "type": "gallery",
+
+      "id": "results",
+
+      "title_es": "Resultados",
+
+      "title_en": "Results",
+
+      "description_es": "Resultado final de la plataforma de datos.",
+
+      "description_en": "Final outcome of the data platform.",
+
+      "items": [
+
+        {
+          "image": "/assets/Portfolio/ccs-data-modernization/Dashboard_General_CCS.png",
+
+          "title_es": "Dashboard General",
+
+          "title_en": "General Dashboard",
+
+          "caption_es": "Indicadores comerciales desarrollados en Power BI.",
+
+          "caption_en": "Commercial KPIs built in Power BI."
+        },
+
+        {
+          "image": "/assets/Portfolio/ccs-data-modernization/Dashboard_Sales_CCS.png",
+
+          "title_es": "Dashboard Ventas",
+
+          "title_en": "Sales Dashboard",
+
+          "caption_es": "Análisis histórico de ventas.",
+
+          "caption_en": "Historical sales analysis."
+        },
+
+        {
+          "image": "/assets/Portfolio/ccs-data-modernization/Dashboard_Customer_CCS.png",
+
+          "title_es": "Dashboard Clientes",
+
+          "title_en": "Customer Dashboard",
+
+          "caption_es": "Analisis historico de clientes.",
+
+          "caption_en": "Historical customer analysis."
+        },
+
+        {
+          "image": "/assets/Portfolio/ccs-data-modernization/Dashboard_employees_CCS.png",
+
+          "title_es": "Dashboard Ejecutivo",
+
+          "title_en": "Executive Dashboard",
+
+          "caption_es": "Vista consolidada para la toma de decisiones.",
+
+          "caption_en": "Executive decision-making dashboard."
+        },
+
+        {
+          "image": "/assets/Portfolio/ccs-data-modernization/PostgreSQL_db.png",
+
+          "title_es": "Base de datos en postgreSQL",
+
+          "title_en": "Data base on postgreSQL",
+
+          "caption_es": "Vista de la base de datos.",
+
+          "caption_en": "Data base view."
+        }
+
+      ]
+    },
+
+    {
+      "type": "metrics",
+
+      "id": "metrics",
+
+      "title_es": "Impacto",
+
+      "title_en": "Impact",
+
+      "items": [
+
+        {
+          "value": "1",
+          "label_es": "Pipelines Docker",
+          "label_en": "Docker Pipelines"
+        },
+
+        {
+          "value": "4",
+          "label_es": "Dashboards BI",
+          "label_en": "BI Dashboards"
+        },
+
+        {
+          "value": "95%",
+          "label_es": "Datos Normalizados",
+          "label_en": "Standardized Data"
+        },
+
+        {
+          "value": "1",
+          "label_es": "Repositorio Central en PostgreSQL",
+          "label_en": "Central Data Repository on PostgreSQL"
+        }
+
+      ]
+    },
+
+    {
+      "type": "text",
+
+      "id": "lessons",
+
+      "title_es": "Lecciones Aprendidas",
+
+      "title_en": "Lessons Learned",
+
+      "content_es": "Este proyecto demostró que la calidad de los análisis depende directamente de la calidad del gobierno de datos. Antes de construir dashboards o modelos analíticos es indispensable definir estándares de información, modelos relacionales y procesos automatizados que garanticen consistencia, trazabilidad y escalabilidad de los datos.",
+
+      "content_en": "This project reinforced that analytics quality depends on strong data governance. Before building dashboards or analytical models, organizations must establish standardized data structures, relational models and automated pipelines that ensure consistency, traceability and scalability."
+    }
+
+  ],
+
+  "technologies": [
+
+    "Python",
+    "Pandas",
+    "PostgreSQL",
+    "Docker",
+    "Power BI",
+    "SQL",
+    "CSV",
+    "Excel",
+    "Data Modeling",
+    "Data Validation",
+    "Data Governance"
+
+  ],
+
+  "references": [
+
+    {
+      "name": "Project on GitHub",
+      "url": "https://github.com/CabHug/CCS_analisys"
+    }
+
+  ]
+}
