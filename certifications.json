@@ -1,0 +1,405 @@
+{
+  "meta": {
+    "banner": "/assets/general/banner-linkedIn.jpg",
+    "title_es": "Certificaciones",
+    "title_en": "Certifications",
+    "summary_es": "Formación y certificaciones organizadas por área de especialización: Analítica de Datos, Ingeniería de Datos, Inteligencia Artificial, Automatización y Riesgo Financiero.",
+    "summary_en": "Training and certifications organized by area of expertise: Data Analytics, Data Engineering, Artificial Intelligence, Automation and Financial Risk."
+  },
+  "categories": {
+    "data-analytics": {
+      "icon": "fas fa-chart-line",
+      "title_es": "Data Analytics",
+      "title_en": "Data Analytics",
+      "desc_es": "Habilidades de análisis y visualización de datos.",
+      "desc_en": "Building analytical and visualization skills.",
+      "items": [
+        {
+          "id": "da-001",
+          "name_es": "Diploma del Curso de Python para Ciencia de Datos",
+          "name_en": "Python for Data Science Course",
+          "issuer": "Platzi",
+          "badges": ["Python", "Pandas", "Data Science"],
+          "desc_es": "Manipulación y análisis de datos con Python aplicado a ciencia de datos.",
+          "desc_en": "Data manipulation and analysis with Python applied to data science.",
+          "file": "https://platzi.com/p/hacabreral.study/curso/10365-course/diploma/detalle/"
+        },
+        {
+          "id": "da-002",
+          "name_es": "Diploma del Curso de Matemáticas para Data Science: Estadística Descriptiva",
+          "name_en": "Math for Data Science: Descriptive Statistics",
+          "issuer": "Platzi",
+          "badges": ["Estadística", "Data Science"],
+          "desc_es": "Fundamentos de estadística descriptiva aplicados al análisis de datos.",
+          "desc_en": "Descriptive statistics fundamentals applied to data analysis.",
+          "file": "https://platzi.com/p/hacabreral.study/curso/2353-course/diploma/detalle/"
+        },
+        {
+          "id": "da-003",
+          "name_es": "Diploma del Curso de Estadística y Probabilidad",
+          "name_en": "Statistics and Probability Course",
+          "issuer": "Platzi",
+          "badges": ["Estadística", "Probabilidad"],
+          "desc_es": "Bases estadísticas y de probabilidad para la toma de decisiones basada en datos.",
+          "desc_en": "Statistical and probability foundations for data-driven decision-making.",
+          "file": "https://platzi.com/p/hacabreral.study/curso/7594-course/diploma/detalle/"
+        },
+        {
+          "id": "da-004",
+          "name_es": "Diploma del Curso de Álgebra",
+          "name_en": "Algebra Course",
+          "issuer": "Platzi",
+          "badges": ["Matemáticas"],
+          "desc_es": "Fundamentos algebraicos como base matemática para el análisis de datos.",
+          "desc_en": "Algebra fundamentals as a mathematical foundation for data analysis.",
+          "file": "https://platzi.com/p/hacabreral.study/curso/1449-course/diploma/detalle/"
+        },
+        {
+          "id": "da-005",
+          "name_es": "Diploma del Curso de Fundamentos de Matemáticas",
+          "name_en": "Mathematics Fundamentals Course",
+          "issuer": "Platzi",
+          "badges": ["Matemáticas"],
+          "desc_es": "Bases matemáticas esenciales para el análisis cuantitativo de datos.",
+          "desc_en": "Essential mathematical foundations for quantitative data analysis.",
+          "file": "https://platzi.com/p/hacabreral.study/curso/1393-course/diploma/detalle/"
+        },
+        {
+          "id": "da-006",
+          "name_es": "Diploma del Curso de Power BI",
+          "name_en": "Power BI Course",
+          "issuer": "Platzi",
+          "badges": ["Power BI", "Reporting"],
+          "desc_es": "Modelado de datos y construcción de dashboards interactivos en Power BI.",
+          "desc_en": "Data modeling and interactive dashboard building with Power BI.",
+          "file": "https://platzi.com/p/hacabreral.study/curso/10200-course/diploma/detalle/"
+        },
+        {
+          "id": "da-007",
+          "name_es": "Diploma del Curso de Manejo de Datos Geoespaciales con QGIS",
+          "name_en": "Geospatial Data Management with QGIS",
+          "issuer": "Platzi",
+          "badges": ["QGIS", "GIS"],
+          "desc_es": "Análisis y visualización de datos geoespaciales con QGIS.",
+          "desc_en": "Geospatial data analysis and visualization with QGIS.",
+          "file": "https://platzi.com/p/hacabreral.study/curso/3312-course/diploma/detalle/"
+        },
+        {
+          "id": "da-008",
+          "name_es": "Estadística Aplicada al Proceso Empresarial",
+          "name_en": "Applied Statistics for Business Processes",
+          "issuer": "U. de Catalunya",
+          "badges": ["Estadística", "Business Analytics"],
+          "desc_es": "Aplicación de métodos estadísticos al análisis de procesos empresariales.",
+          "desc_en": "Application of statistical methods to business process analysis.",
+          "file": "assets/U catalunya/Estadistica aplicada al proceso empresarial.png"
+        }
+      ]
+    },
+    "data-engineering": {
+      "icon": "fas fa-database",
+      "title_es": "Data Engineering",
+      "title_en": "Data Engineering",
+      "desc_es": "Desarrollo de pipelines de datos escalables.",
+      "desc_en": "Developing scalable data pipelines.",
+      "items": [
+        {
+          "id": "de-001",
+          "name_es": "Diploma del Curso de Fundamentos de Ingeniería de Software",
+          "name_en": "Software Engineering Fundamentals Course",
+          "issuer": "Platzi",
+          "badges": ["Software Engineering"],
+          "desc_es": "Principios y fundamentos de ingeniería de software aplicados al desarrollo de sistemas.",
+          "desc_en": "Software engineering principles and fundamentals applied to systems development.",
+          "file": "https://platzi.com/p/hacabreral.study/curso/11997-course/diploma/detalle/"
+        },
+        {
+          "id": "de-002",
+          "name_es": "Bases de Datos: Generalidades y Sistemas de Gestión",
+          "name_en": "Databases: Fundamentals and Management Systems",
+          "issuer": "SENA",
+          "badges": ["Bases de Datos", "SQL"],
+          "desc_es": "Fundamentos de bases de datos y sistemas de gestión de información.",
+          "desc_en": "Database fundamentals and information management systems.",
+          "file": "assets/SENA/SENA base de datos generalidades y sistemas de gestion.png"
+        },
+        {
+          "id": "de-003",
+          "name_es": "Variables y Estructuras en Java (POO)",
+          "name_en": "Variables and Structures in Java (OOP)",
+          "issuer": "SENA",
+          "badges": ["Java", "OOP"],
+          "desc_es": "Programación orientada a objetos y estructuras de datos en Java.",
+          "desc_en": "Object-oriented programming and data structures in Java.",
+          "file": "assets/SENA/SENA Variables y estrructuras en JAVA POO.png"
+        },
+        {
+          "id": "de-004",
+          "name_es": "Lenguaje de Programación C++",
+          "name_en": "C++ Programming Language",
+          "issuer": "SENA",
+          "badges": ["C++", "OOP"],
+          "desc_es": "Fundamentos de programación estructurada y orientada a objetos con C++.",
+          "desc_en": "Structured and object-oriented programming fundamentals with C++.",
+          "file": "assets/SENA/SENA lenguaje de programacion c++.png"
+        }
+      ]
+    },
+    "artificial-intelligence": {
+      "icon": "fas fa-brain",
+      "title_es": "Artificial Intelligence",
+      "title_en": "Artificial Intelligence",
+      "desc_es": "Machine Learning e Inteligencia Artificial.",
+      "desc_en": "Machine Learning & AI.",
+      "items": [
+        {
+          "id": "ai-001",
+          "name_es": "Diploma del Curso de Introducción a Machine Learning",
+          "name_en": "Introduction to Machine Learning Course",
+          "issuer": "Platzi",
+          "badges": ["Machine Learning"],
+          "desc_es": "Conceptos fundamentales de Machine Learning y sus aplicaciones prácticas.",
+          "desc_en": "Core Machine Learning concepts and their practical applications.",
+          "file": "https://platzi.com/p/hacabreral.study/curso/2459-course/diploma/detalle/"
+        },
+        {
+          "id": "ai-002",
+          "name_es": "Diploma del Curso de Fundamentos de Redes Neuronales con Python y Keras",
+          "name_en": "Neural Networks Fundamentals with Python and Keras",
+          "issuer": "Platzi",
+          "badges": ["Deep Learning", "Keras", "Python"],
+          "desc_es": "Construcción de redes neuronales con Python y Keras.",
+          "desc_en": "Building neural networks with Python and Keras.",
+          "file": "https://platzi.com/p/hacabreral.study/curso/2263-course/diploma/detalle/"
+        }
+      ]
+    },
+    "automation": {
+      "icon": "fas fa-gears",
+      "title_es": "Automation",
+      "title_en": "Automation",
+      "desc_es": "Automatización de flujos de trabajo.",
+      "desc_en": "Workflow automation.",
+      "items": [
+        {
+          "id": "au-001",
+          "name_es": "Diploma del Curso de Python",
+          "name_en": "Python Course",
+          "issuer": "Platzi",
+          "badges": ["Python"],
+          "desc_es": "Fundamentos del lenguaje Python como base para automatización de tareas.",
+          "desc_en": "Python language fundamentals as a foundation for task automation.",
+          "file": "https://platzi.com/p/hacabreral.study/curso/10002-course/diploma/detalle/"
+        },
+        {
+          "id": "au-002",
+          "name_es": "Diploma del Curso de Power Apps y Power Automate",
+          "name_en": "Power Apps and Power Automate Course",
+          "issuer": "Platzi",
+          "badges": ["Power Automate", "Power Apps", "Low-Code"],
+          "desc_es": "Automatización de procesos de negocio y desarrollo de apps low-code.",
+          "desc_en": "Business process automation and low-code app development.",
+          "file": "https://platzi.com/p/hacabreral.study/curso/12084-course/diploma/detalle/"
+        },
+        {
+          "id": "au-003",
+          "name_es": "Diploma del Curso de Automatizaciones con n8n",
+          "name_en": "Automation with n8n Course",
+          "issuer": "Platzi",
+          "badges": ["n8n", "Workflow Automation"],
+          "desc_es": "Diseño de flujos de automatización e integraciones con n8n.",
+          "desc_en": "Designing automation workflows and integrations with n8n.",
+          "file": "https://platzi.com/p/hacabreral.study/curso/12245-course/diploma/detalle/"
+        },
+        {
+          "id": "au-004",
+          "name_es": "Diploma del Curso Básico de Computadores e Informática",
+          "name_en": "Basic Computers and IT Course",
+          "issuer": "Platzi",
+          "badges": ["IT Fundamentals"],
+          "desc_es": "Fundamentos de computación e informática como base para procesos digitales.",
+          "desc_en": "Computing and IT fundamentals as a foundation for digital processes.",
+          "file": "https://platzi.com/p/hacabreral.study/curso/2793-course/diploma/detalle/"
+        },
+        {
+          "id": "au-005",
+          "name_es": "Gestión de Proyectos en Entornos Ágiles – Énfasis SCRUM",
+          "name_en": "Project Management in Agile Environments – SCRUM Focus",
+          "issuer": "U. de Catalunya",
+          "badges": ["SCRUM", "Agile"],
+          "desc_es": "Gestión ágil de proyectos y flujos de trabajo con metodología SCRUM.",
+          "desc_en": "Agile project management and workflow management using the SCRUM methodology.",
+          "file": "assets/U catalunya/SCRUM.png"
+        },
+        {
+          "id": "au-006",
+          "name_es": "Programación de Dispositivos IoT",
+          "name_en": "IoT Device Programming",
+          "issuer": "SENA",
+          "badges": ["IoT"],
+          "desc_es": "Programación y automatización de dispositivos conectados (IoT).",
+          "desc_en": "Programming and automation of connected devices (IoT).",
+          "file": "assets/SENA/SENA Programacion de dispositivos iot.png"
+        },
+        {
+          "id": "au-007",
+          "name_es": "Aplicación de los Sensores en los Circuitos Electrónicos",
+          "name_en": "Application of Sensors in Electronic Circuits",
+          "issuer": "SENA",
+          "badges": ["IoT", "Electronics"],
+          "desc_es": "Integración de sensores en circuitos electrónicos para procesos automatizados.",
+          "desc_en": "Integrating sensors into electronic circuits for automated processes.",
+          "file": "assets/SENA/SENA aplicacion de los sensores in los circuitos electronicos.png"
+        }
+      ]
+    },
+    "financial-risk": {
+      "icon": "fas fa-shield-halved",
+      "title_es": "Financial Risk",
+      "title_en": "Financial Risk",
+      "desc_es": "AML · SARLAFT · Cumplimiento.",
+      "desc_en": "AML · SARLAFT · Compliance.",
+      "items": [
+        {
+          "id": "fr-001",
+          "name_es": "Curso de Certificación ISO 27001 para Empresas",
+          "name_en": "ISO 27001 Certification Program for Businesses",
+          "issuer": "Platzi",
+          "badges": ["ISO 27001", "Compliance"],
+          "desc_es": "Fundamentos de gestión de seguridad de la información según ISO 27001.",
+          "desc_en": "Information security management fundamentals under ISO 27001.",
+          "file": "https://platzi.com/p/hacabreral.study/curso/12015-course/diploma/detalle/"
+        },
+        {
+          "id": "fr-002",
+          "name_es": "Análisis del Sistema de Administración del Riesgo de Lavado de Activos y Financiación del Terrorismo (SARLAFT)",
+          "name_en": "Analysis of the Risk Management System for Money Laundering and Terrorism Financing (SARLAFT)",
+          "issuer": "SENA",
+          "badges": ["SARLAFT", "AML", "Compliance"],
+          "desc_es": "Marco normativo colombiano para la gestión del riesgo de lavado de activos y financiación del terrorismo.",
+          "desc_en": "Colombian regulatory framework for anti-money laundering and counter-terrorism financing risk management.",
+          "file": "assets/SENA/SENA SARLAFT.png"
+        },
+        {
+          "id": "fr-003",
+          "name_es": "SG-SST: Seguridad y Salud en el Trabajo",
+          "name_en": "Occupational Health and Safety (SG-SST)",
+          "issuer": "SENA",
+          "badges": ["SG-SST", "Compliance"],
+          "desc_es": "Sistema de gestión de seguridad y salud en el trabajo bajo normativa colombiana.",
+          "desc_en": "Occupational health and safety management system under Colombian regulation.",
+          "file": "assets/SENA/SENA SG-SST.png"
+        },
+        {
+          "id": "fr-004",
+          "name_es": "Diploma del Curso de Introducción a Educación Financiera",
+          "name_en": "Introduction to Financial Education Course",
+          "issuer": "Platzi",
+          "badges": ["Financial Education"],
+          "desc_es": "Conceptos base de educación financiera aplicados a la gestión de riesgo.",
+          "desc_en": "Foundational financial education concepts applied to risk management.",
+          "file": "https://platzi.com/p/hacabreral.study/curso/2166-course/diploma/detalle/"
+        },
+        {
+          "id": "fr-005",
+          "name_es": "Ingresos y Gastos Personales",
+          "name_en": "Personal Income and Expenses",
+          "issuer": "SENA",
+          "badges": ["Financial Education"],
+          "desc_es": "Gestión de ingresos y gastos personales como base de educación financiera.",
+          "desc_en": "Managing personal income and expenses as a foundation of financial literacy.",
+          "file": "assets/SENA/SENA ingresos y gastos personales.png"
+        }
+      ]
+    },
+    "general-other": {
+      "icon": "fas fa-layer-group",
+      "title_es": "General y Desarrollo Profesional",
+      "title_en": "General & Professional Development",
+      "desc_es": "Idiomas, negocios y formación complementaria.",
+      "desc_en": "Languages, business and complementary training.",
+      "items": [
+        {
+          "id": "go-001",
+          "name_es": "English Dot Works Beginner",
+          "name_en": "English Dot Works Beginner",
+          "issuer": "SENA",
+          "badges": ["English"],
+          "desc_es": "Nivel inicial de inglés como segunda lengua.",
+          "desc_en": "Beginner-level English as a second language.",
+          "file": "assets/SENA/SENA english dot works beginner.png"
+        },
+        {
+          "id": "go-002",
+          "name_es": "English Dot Works 1",
+          "name_en": "English Dot Works 1",
+          "issuer": "SENA",
+          "badges": ["English"],
+          "desc_es": "Continuación del programa de inglés como segunda lengua, nivel 1.",
+          "desc_en": "Continuation of the English as a second language program, level 1.",
+          "file": "assets/SENA/SENA english dot works 1.png"
+        },
+        {
+          "id": "go-003",
+          "name_es": "English Dot Works 2",
+          "name_en": "English Dot Works 2",
+          "issuer": "SENA",
+          "badges": ["English"],
+          "desc_es": "Continuación del programa de inglés como segunda lengua, nivel 2.",
+          "desc_en": "Continuation of the English as a second language program, level 2.",
+          "file": "assets/SENA/SENA english dot works 2.png"
+        },
+        {
+          "id": "go-004",
+          "name_es": "Diploma del Curso de Introducción a los Negocios Online en Ecommerce",
+          "name_en": "Introduction to Online Business in Ecommerce",
+          "issuer": "Platzi",
+          "badges": ["Ecommerce", "Business"],
+          "desc_es": "Fundamentos para la creación y gestión de negocios online.",
+          "desc_en": "Fundamentals for creating and managing online businesses.",
+          "file": "https://platzi.com/p/hacabreral.study/curso/1346-course/diploma/detalle/"
+        },
+        {
+          "id": "go-005",
+          "name_es": "Desarrollo de un Modelo de Negocio Online",
+          "name_en": "Online Business Model Development",
+          "issuer": "SENA",
+          "badges": ["Business Model"],
+          "desc_es": "Diseño y estructuración de modelos de negocio digitales.",
+          "desc_en": "Design and structuring of digital business models.",
+          "file": "assets/SENA/SENA Desarrollo de un modelo de negocios online.png"
+        },
+        {
+          "id": "go-006",
+          "name_es": "Trámites Legales para la Constitución de una Empresa",
+          "name_en": "Legal Procedures for Business Incorporation",
+          "issuer": "SENA",
+          "badges": ["Legal", "Business"],
+          "desc_es": "Procesos legales y administrativos para la creación formal de una empresa.",
+          "desc_en": "Legal and administrative processes for formally incorporating a company.",
+          "file": "assets/SENA/SENA Tramites legales para la constitucion de una empresa.png"
+        },
+        {
+          "id": "go-007",
+          "name_es": "Diseño Web con Dreamweaver",
+          "name_en": "Web Design with Dreamweaver",
+          "issuer": "SENA",
+          "badges": ["Web Design"],
+          "desc_es": "Maquetación y diseño de sitios web con Adobe Dreamweaver.",
+          "desc_en": "Web page layout and design with Adobe Dreamweaver.",
+          "file": "assets/SENA/SENA Diseño web con dreamweaver.png"
+        },
+        {
+          "id": "go-008",
+          "name_es": "Formación Profesional Integral",
+          "name_en": "Comprehensive Professional Training",
+          "issuer": "SENA",
+          "badges": ["Professional Development"],
+          "desc_es": "Programa de formación profesional integral del SENA.",
+          "desc_en": "SENA's comprehensive professional training program.",
+          "file": "assets/SENA/SENA Formacion profesional integral.png"
+        }
+      ]
+    }
+  }
+}

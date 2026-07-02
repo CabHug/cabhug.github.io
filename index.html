@@ -74,7 +74,7 @@
       transition: background-color .25s ease, color .25s ease, border-color .25s ease, box-shadow .25s ease;
     }
     /* Excluir transform de la transición global para no interferir con hover preciso */
-    .project-card, .cert-card, .highlight-card, .lang-item, .soft-card, .skill-card {
+    .project-card, .cert-cat-card, .highlight-card, .lang-item, .soft-card, .skill-card {
       transition: background-color .25s ease, color .25s ease, border-color .25s ease, box-shadow .25s ease;
     }
 
@@ -304,22 +304,32 @@
     .lang-item i { color: var(--accent); font-size: 1.1rem; }
     .lang-item strong { color: var(--text-primary); font-weight: 700; }
 
-    /* ── Cert cards ── */
-    .cert-card {
-      flex: 0 0 300px;
+    /* ── Cert category cards (carrusel de categorías de certificaciones) ── */
+    .cert-cat-card {
+      flex: 0 0 260px;
       background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius-card);
-      padding: 1.5rem; box-shadow: var(--shadow);
-      display: flex; flex-direction: column; justify-content: space-between; gap: 1.25rem;
+      padding: 1.75rem 1.5rem; box-shadow: var(--shadow);
+      display: flex; flex-direction: column; gap: 1rem;
+      cursor: pointer; text-decoration: none; color: inherit;
+      appearance: none; font-family: inherit; text-align: left;
     }
-    .cert-card:hover { border-color: var(--accent); box-shadow: var(--shadow-hover); }
-    .cert-info { display: flex; flex-direction: column; gap: .35rem; }
-    .cert-name { font-size: .95rem; font-weight: 700; line-height: 1.4; color: var(--text-primary); }
-    .cert-provider { font-size: .85rem; font-weight: 500; color: var(--text-muted); text-transform: uppercase; letter-spacing: .02em; }
-    .cert-foot { display: flex; justify-content: flex-end; align-items: center; }
-    .cert-provider-block { display: flex; flex-direction: column; gap: .75rem; }
-    .cert-provider-title {
-      font-size: .95rem; font-weight: 600; color: var(--text-secondary);
-      display: flex; align-items: center; gap: .5rem; margin-top: .5rem;
+    .cert-cat-card:hover, .cert-cat-card:focus-visible {
+      border-color: var(--accent); box-shadow: var(--shadow-hover); outline: none;
+    }
+    .cert-cat-card:hover .cert-cat-icon, .cert-cat-card:focus-visible .cert-cat-icon {
+      background: var(--accent); color: #fff;
+    }
+    .cert-cat-icon {
+      width: 3rem; height: 3rem; border-radius: var(--radius-badge);
+      background: var(--badge-bg); color: var(--accent);
+      display: flex; align-items: center; justify-content: center; font-size: 1.25rem;
+    }
+    .cert-cat-title { font-size: 1.05rem; font-weight: 700; color: var(--text-primary); letter-spacing: -.01em; }
+    .cert-cat-desc { font-size: .85rem; color: var(--text-muted); line-height: 1.5; }
+    .cert-cat-cta {
+      margin-top: auto; font-size: .78rem; font-weight: 700; color: var(--accent);
+      display: flex; align-items: center; gap: .35rem;
+      text-transform: uppercase; letter-spacing: .04em;
     }
 
     /* ============================================================
@@ -339,6 +349,14 @@
     }
     .connect-title { font-size: 1.75rem; font-weight: 800; letter-spacing: -.03em; }
     .connect-desc { font-size: .95rem; color: var(--text-secondary); max-width: 500px; }
+    .connect-btn {
+      background: var(--accent); color: #fff; border: 1px solid var(--accent);
+      padding: .75rem 1.75rem; border-radius: var(--radius-badge);
+      font-family: inherit; font-weight: 700; font-size: .95rem;
+      display: inline-flex; align-items: center; gap: .6rem;
+      text-decoration: none; box-shadow: var(--shadow);
+    }
+    .connect-btn:hover { background: var(--accent-hover); border-color: var(--accent-hover); box-shadow: var(--shadow-hover); }
 
     /* ── Footer ── */
     footer {
@@ -354,7 +372,7 @@
       .highlight-grid { grid-template-columns: repeat(2,1fr); }
       .skills-wrapper { grid-template-columns: 1fr; gap: 2rem; }
       .project-card { flex: 0 0 320px; }
-      .cert-card { flex: 0 0 280px; }
+      .cert-cat-card { flex: 0 0 240px; }
     }
     @media (max-width: 600px) {
       .container { padding: 0 1rem 3rem; gap: 4rem; }
@@ -448,7 +466,11 @@
         <i class="fas fa-certificate" aria-hidden="true"></i>
         <span id="sec_certs_heading"></span>
       </h2>
-      <div id="certs_blocks_container" style="display:flex;flex-direction:column;gap:2.5rem;"></div>
+      <div class="carousel-outer">
+        <button class="carousel-btn prev" onclick="scrollCarousel('certs_categories_track', -1)" aria-label="Anterior"><i class="fas fa-chevron-left"></i></button>
+        <div class="carousel-track" id="certs_categories_track"></div>
+        <button class="carousel-btn next" onclick="scrollCarousel('certs_categories_track', 1)" aria-label="Siguiente"><i class="fas fa-chevron-right"></i></button>
+      </div>
     </section>
 
     <!-- 8. CTA -->
@@ -485,6 +507,7 @@
       lbl_impact:            { es: "Impacto:",            en: "Impact:" },
       lbl_references:        { es: "Referencias:",        en: "References:" },
       lbl_case_study:        { es: "Ver Caso de Estudio", en: "View Case Study" },
+      lbl_view_certs:        { es: "Ver certificados",    en: "View certificates" },
       lbl_code_public:       { es: "Código disponible",   en: "Code available" },
       lbl_code_conf:         { es: "Código confidencial", en: "Confidential code" },
       theme_light:           { es: "Modo Oscuro",         en: "Dark Mode" },
@@ -502,7 +525,8 @@
       metric_projects: { es: "Proyectos Completados", en: "Projects Completed" },
       metric_learning: { es: "Siempre Aprendiendo",   en: "Always Learning" },
       connect_cta_title: { es: "Diseñemos el futuro con datos", en: "Let's build the future with data" },
-      connect_cta_desc:  { es: "Disponible para roles especializados en Ingeniería de Datos y Analítica Avanzada.", en: "Available for specialized roles in Data Engineering and Advanced Analytics." }
+      connect_cta_btn:   { es: "Hablemos",  en: "Let's talk" },
+      connect_cta_btn_aria: { es: "Escríbeme por LinkedIn", en: "Message me on LinkedIn" }
     },
     contact: {
       name: "Hugo Cabrera",
@@ -514,8 +538,7 @@
       links: [
         { icon: "fas fa-location-dot", text: "Colombia", url: null },
         { icon: "fab fa-linkedin",     text: "LinkedIn", url: "https://www.linkedin.com/in/hugo-cabrera-324272191", external: true },
-        { icon: "fab fa-github",       text: "GitHub",   url: "https://github.com/CabHug", external: true },
-        { icon: "fas fa-globe",        text: "Web Portfolio", url: "https://cabhug.github.io/", external: true }
+        { icon: "fab fa-github",       text: "GitHub",   url: "https://github.com/CabHug", external: true }
       ]
     },
     profile: {
@@ -639,24 +662,52 @@
         ]
       }
     ],
-    certs: [
+    /* Categorías del carrusel de Certificaciones (sección 7).
+       Cada tarjeta enlaza a certifications.html?category=<id>, donde
+       certifications.js lee certifications.json (agrupado por estos
+       mismos 5 ids) y renderiza la cuadrícula de certificados. */
+    certCategories: [
       {
-        id: "cert_platzi",
-        title_es: "Certificaciones Platzi",
-        title_en: "Platzi Certifications",
-        items: [
-          { name_es: "Curso de Python para Ciencia de Datos", name_en: "Python for Data Science Course", url: "https://platzi.com/" },
-          { name_es: "Curso de Power BI", name_en: "Power BI Course", url: "https://platzi.com/" }
-        ]
+        id: "data-analytics",
+        icon: "fas fa-chart-line",
+        title_es: "Data Analytics", title_en: "Data Analytics",
+        desc_es: "Habilidades de análisis y visualización de datos.",
+        desc_en: "Building analytical and visualization skills."
       },
       {
-        id: "cert_uc",
-        title_es: "Certificaciones U. de Catalunya",
-        title_en: "U. de Catalunya Certifications",
-        items: [
-          { name_es: "Estadística Aplicada al Proceso Empresarial", name_en: "Applied Statistics for Business Processes", url: "#" },
-          { name_es: "Gestión de Proyectos en Entornos Ágiles – Énfasis SCRUM", name_en: "Project Management in Agile Environments – SCRUM Emphasis", url: "#" }
-        ]
+        id: "data-engineering",
+        icon: "fas fa-database",
+        title_es: "Data Engineering", title_en: "Data Engineering",
+        desc_es: "Desarrollo de pipelines de datos escalables.",
+        desc_en: "Developing scalable data pipelines."
+      },
+      {
+        id: "artificial-intelligence",
+        icon: "fas fa-brain",
+        title_es: "Artificial Intelligence", title_en: "Artificial Intelligence",
+        desc_es: "Machine Learning e Inteligencia Artificial.",
+        desc_en: "Machine Learning & AI."
+      },
+      {
+        id: "automation",
+        icon: "fas fa-gears",
+        title_es: "Automation", title_en: "Automation",
+        desc_es: "Automatización de flujos de trabajo.",
+        desc_en: "Workflow automation."
+      },
+      {
+        id: "financial-risk",
+        icon: "fas fa-shield-halved",
+        title_es: "Financial Risk", title_en: "Financial Risk",
+        desc_es: "AML · SARLAFT · Cumplimiento.",
+        desc_en: "AML · SARLAFT · Compliance."
+      },
+      {
+        id: "general-other",
+        icon: "fas fa-layer-group",
+        title_es: "General y Desarrollo Profesional", title_en: "General & Professional Development",
+        desc_es: "Idiomas, negocios y formación complementaria.",
+        desc_en: "Languages, business and complementary training."
       }
     ]
   };
@@ -796,21 +847,18 @@
       </div>`;
   }
 
-  /* Render de cert-card */
-  function renderCertCard(i, isClone, providerLabel) {
-    const name = currentLang === 'es' ? i.name_es : i.name_en;
+  /* Render de cert-cat-card (tarjeta de categoría de certificaciones) */
+  function renderCertCategoryCard(c, isClone) {
+    const title = currentLang === 'es' ? c.title_es : c.title_en;
+    const desc  = currentLang === 'es' ? c.desc_es  : c.desc_en;
+    const cta   = PORTFOLIO_DATA.ui.lbl_view_certs[currentLang];
     return `
-      <div class="cert-card" aria-hidden="${isClone}">
-        <div class="cert-info">
-          <span class="cert-name">${name}</span>
-          <span class="cert-provider"><i class="fas fa-building" style="margin-right:.3rem"></i>${providerLabel}</span>
-        </div>
-        <div class="cert-foot">
-          <a href="${i.url}" target="_blank" rel="noopener" class="btn btn-primary" style="padding:.35rem .75rem;font-size:.8rem">
-            <i class="fas fa-external-link-alt"></i> Link
-          </a>
-        </div>
-      </div>`;
+      <a href="certifications.html?category=${c.id}" class="cert-cat-card" aria-hidden="${isClone}">
+        <span class="cert-cat-icon"><i class="${c.icon}" aria-hidden="true"></i></span>
+        <span class="cert-cat-title">${title}</span>
+        <span class="cert-cat-desc">${desc}</span>
+        <span class="cert-cat-cta">${cta} <i class="fas fa-arrow-right" aria-hidden="true"></i></span>
+      </a>`;
   }
 
   /* ============================================================
@@ -891,39 +939,20 @@
         <span><strong>${currentLang === 'es' ? l.name_es : l.name_en}:</strong> ${currentLang === 'es' ? l.level_es : l.level_en}</span>
       </div>`).join('');
 
-    /* 7. CERTS — carruseles por bloque */
+    /* 7. CERTS — carrusel de categorías (cada tarjeta lleva a certifications.html) */
     document.getElementById('sec_certs_heading').textContent = PORTFOLIO_DATA.ui.title_certs[currentLang];
-    const certsContainer = document.getElementById('certs_blocks_container');
-    certsContainer.innerHTML = PORTFOLIO_DATA.certs.map(c => {
-      const providerLabel = currentLang === 'es' ? c.title_es : c.title_en;
-      return `
-        <div class="cert-provider-block">
-          <h3 class="cert-provider-title">
-            <i class="fas fa-award" style="color:var(--accent)"></i>
-            ${providerLabel}
-          </h3>
-          <div class="carousel-outer">
-            <button class="carousel-btn prev" onclick="scrollCarousel('track_${c.id}', -1)" aria-label="Anterior"><i class="fas fa-chevron-left"></i></button>
-            <div class="carousel-track" id="track_${c.id}"></div>
-            <button class="carousel-btn next" onclick="scrollCarousel('track_${c.id}', 1)" aria-label="Siguiente"><i class="fas fa-chevron-right"></i></button>
-          </div>
-        </div>`;
-    }).join('');
-
-    /* Inicializar carruseles de certs después de inyectar el DOM */
-    requestAnimationFrame(() => {
-      PORTFOLIO_DATA.certs.forEach(c => {
-        const label = currentLang === 'es' ? c.title_es : c.title_en;
-        renderCarousel('track_' + c.id, c.items,
-          (item, isClone) => renderCertCard(item, isClone, label));
-      });
-    });
+    renderCarousel('certs_categories_track', PORTFOLIO_DATA.certCategories,
+      (c, isClone) => renderCertCategoryCard(c, isClone));
 
     /* 8. CTA */
+    const linkedinUrl = (PORTFOLIO_DATA.contact.links.find(l => l.icon === 'fab fa-linkedin') || {}).url || '#';
     document.getElementById('connect_section').innerHTML = `
       <div class="connect-cta">
         <h2 class="connect-title">${PORTFOLIO_DATA.ui.connect_cta_title[currentLang]}</h2>
-        <p class="connect-desc">${PORTFOLIO_DATA.ui.connect_cta_desc[currentLang]}</p>
+        <a href="${linkedinUrl}" target="_blank" rel="noopener" class="connect-btn" aria-label="${PORTFOLIO_DATA.ui.connect_cta_btn_aria[currentLang]}">
+          <i class="fab fa-linkedin" aria-hidden="true"></i>
+          ${PORTFOLIO_DATA.ui.connect_cta_btn[currentLang]}
+        </a>
       </div>`;
 
     /* FOOTER */
