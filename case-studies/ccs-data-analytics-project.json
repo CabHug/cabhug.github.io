@@ -5,7 +5,7 @@
     "company": "CCS",
     "status": "Developing",
     "category": "Data Analysis & Machine Learning",
-    "duration": "3 Months",
+    "duration": "1 Month",
     "confidential": false
   },
   "hero": {
@@ -51,25 +51,18 @@
       "description_en": "Analytical project workflow developed in Notebooks.",
       "items": [
         {
-          "image": "/assets/Portfolio/ccs-data-analytics/01_data_understanding.jpg",
+          "image": "/assets/Portfolio/cc-data-analytics-project/01_data_understanding.png",
           "title_es": "Data Understanding",
           "title_en": "Data Understanding",
           "caption_es": "Carga e inspección de datos, tipos y nulos.",
           "caption_en": "Loading and inspection of data, types, and nulls."
         },
         {
-          "image": "/assets/Portfolio/ccs-data-analytics/02_data_cleaning.jpg",
+          "image": "/assets/Portfolio/cc-data-analytics-project/02_data_cleaning.png",
           "title_es": "Data Cleaning",
           "title_en": "Data Cleaning",
           "caption_es": "Estandarización de categorías y creación de variables derivadas.",
           "caption_en": "Category standardization and derived variables creation."
-        },
-        {
-          "image": "/assets/Portfolio/ccs-data-analytics/03_eda.jpg",
-          "title_es": "Exploratory Data Analysis",
-          "title_en": "Exploratory Data Analysis",
-          "caption_es": "Análisis y gráficos con interpretación e insights.",
-          "caption_en": "Analysis and charts with interpretation and insights."
         }
       ]
     },
@@ -82,25 +75,11 @@
       "description_en": "Post-EDA dashboard construction with multiple views.",
       "items": [
         {
-          "image": "/assets/Portfolio/ccs-data-analytics/dashboard_resumen.png",
+          "image": "/assets/Portfolio/cc-data-analytics-project/01_query_sales_by_course_years.png",
           "title_es": "Resumen Ejecutivo",
           "title_en": "Executive Summary",
           "caption_es": "Vista de los indicadores de negocio principales.",
           "caption_en": "View of the main business indicators."
-        },
-        {
-          "image": "/assets/Portfolio/ccs-data-analytics/dashboard_ventas.png",
-          "title_es": "Ventas y Tendencias",
-          "title_en": "Sales and Trends",
-          "caption_es": "Páginas de ventas por curso y evolución temporal.",
-          "caption_en": "Pages for sales by course and temporal evolution."
-        },
-        {
-          "image": "/assets/Portfolio/ccs-data-analytics/dashboard_clientes.png",
-          "title_es": "Clientes y Comercial",
-          "title_en": "Customers and Commercial",
-          "caption_es": "Páginas dedicadas al perfil del cliente y desempeño comercial.",
-          "caption_en": "Pages dedicated to customer profile and commercial performance."
         }
       ]
     },
