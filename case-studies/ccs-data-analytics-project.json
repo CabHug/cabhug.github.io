@@ -1,0 +1,181 @@
+{
+  "id": "ccs-data-analytics-project",
+  "metadata": {
+    "date": "2026",
+    "company": "CCS",
+    "status": "Developing",
+    "category": "Data Analysis & Machine Learning",
+    "duration": "3 Months",
+    "confidential": false
+  },
+  "hero": {
+    "title_es": "Proyecto Integral de Análisis de Datos y Segmentación",
+    "title_en": "End-to-End Data Analysis and Segmentation Project",
+    "subtitle_es": "Data Analysis • Pandas • EDA • Power BI • Machine Learning",
+    "subtitle_en": "Data Analysis • Pandas • EDA • Power BI • Machine Learning",
+    "cover": "/assets/general/banner-linkedIn.jpg",
+    "summary_es": "Desarrollo de un proyecto de analítica de datos de principio a fin para CCS. Incluye limpieza de datos, análisis exploratorio (EDA), definición de KPIs, construcción de un dashboard en Power BI y aplicación de un modelo K-Means para segmentación de clientes.",
+    "summary_en": "Development of an end-to-end data analytics project for CCS. It includes data cleaning, exploratory data analysis (EDA), KPI definition, building a Power BI dashboard, and applying a K-Means model for customer segmentation."
+  },
+  "sections": [
+    {
+      "type": "text",
+      "id": "business-context",
+      "title_es": "Contexto del Negocio",
+      "title_en": "Business Context",
+      "content_es": "El proyecto requiere definir el problema del negocio y documentar cinco preguntas clave: identificar los cursos con más ingresos, definir el perfil del cliente, evaluar el desempeño comercial, analizar la evolución temporal de las ventas y descubrir los factores que influyen en las mismas.",
+      "content_en": "The project requires defining the business problem and documenting five key questions: identifying courses with the highest revenue, defining the customer profile, evaluating commercial performance, analyzing the temporal evolution of sales, and discovering factors influencing sales."
+    },
+    {
+      "type": "text",
+      "id": "problem",
+      "title_es": "Problema",
+      "title_en": "Problem",
+      "content_es": "La organización necesitaba transformar datos crudos en hallazgos accionables para la toma de decisiones. Esto implicaba desde inspeccionar y comprender el significado de cada variable hasta responder preguntas de negocio mediante visualizaciones y agrupar a los clientes estratégicamente.",
+      "content_en": "The organization needed to transform raw data into actionable insights for decision-making. This involved everything from inspecting and understanding the meaning of each variable to answering business questions through visualizations and strategically grouping customers."
+    },
+    {
+      "type": "text",
+      "id": "solution",
+      "title_es": "Solución",
+      "title_en": "Solution",
+      "content_es": "Se ejecutó una hoja de ruta estructurada en fases. Comenzó con la carga e inspección de datos usando Pandas, seguido por la limpieza de valores nulos y duplicados. Posteriormente se realizó un EDA para responder las preguntas de negocio, se definieron KPIs clave y se consolidó la información en un dashboard de Power BI, finalizando con la implementación de un modelo K-Means.",
+      "content_en": "A structured roadmap was executed in phases. It began with data loading and inspection using Pandas, followed by cleaning null values and duplicates. Subsequently, an EDA was performed to answer business questions, key KPIs were defined, and the information was consolidated in a Power BI dashboard, ending with the implementation of a K-Means model."
+    },
+    {
+      "type": "gallery",
+      "id": "architecture",
+      "title_es": "Fases de Procesamiento",
+      "title_en": "Processing Phases",
+      "description_es": "Flujo de trabajo del proyecto analítico desarrollado en Notebooks.",
+      "description_en": "Analytical project workflow developed in Notebooks.",
+      "items": [
+        {
+          "image": "/assets/Portfolio/ccs-data-analytics/01_data_understanding.jpg",
+          "title_es": "Data Understanding",
+          "title_en": "Data Understanding",
+          "caption_es": "Carga e inspección de datos, tipos y nulos.",
+          "caption_en": "Loading and inspection of data, types, and nulls."
+        },
+        {
+          "image": "/assets/Portfolio/ccs-data-analytics/02_data_cleaning.jpg",
+          "title_es": "Data Cleaning",
+          "title_en": "Data Cleaning",
+          "caption_es": "Estandarización de categorías y creación de variables derivadas.",
+          "caption_en": "Category standardization and derived variables creation."
+        },
+        {
+          "image": "/assets/Portfolio/ccs-data-analytics/03_eda.jpg",
+          "title_es": "Exploratory Data Analysis",
+          "title_en": "Exploratory Data Analysis",
+          "caption_es": "Análisis y gráficos con interpretación e insights.",
+          "caption_en": "Analysis and charts with interpretation and insights."
+        }
+      ]
+    },
+    {
+      "type": "gallery",
+      "id": "results",
+      "title_es": "Resultados en Power BI",
+      "title_en": "Power BI Results",
+      "description_es": "Construcción del dashboard posterior al EDA con múltiples vistas.",
+      "description_en": "Post-EDA dashboard construction with multiple views.",
+      "items": [
+        {
+          "image": "/assets/Portfolio/ccs-data-analytics/dashboard_resumen.png",
+          "title_es": "Resumen Ejecutivo",
+          "title_en": "Executive Summary",
+          "caption_es": "Vista de los indicadores de negocio principales.",
+          "caption_en": "View of the main business indicators."
+        },
+        {
+          "image": "/assets/Portfolio/ccs-data-analytics/dashboard_ventas.png",
+          "title_es": "Ventas y Tendencias",
+          "title_en": "Sales and Trends",
+          "caption_es": "Páginas de ventas por curso y evolución temporal.",
+          "caption_en": "Pages for sales by course and temporal evolution."
+        },
+        {
+          "image": "/assets/Portfolio/ccs-data-analytics/dashboard_clientes.png",
+          "title_es": "Clientes y Comercial",
+          "title_en": "Customers and Commercial",
+          "caption_es": "Páginas dedicadas al perfil del cliente y desempeño comercial.",
+          "caption_en": "Pages dedicated to customer profile and commercial performance."
+        }
+      ]
+    },
+    {
+      "type": "list",
+      "id": "challenges",
+      "title_es": "Retos Técnicos",
+      "title_en": "Technical Challenges",
+      "items_es": [
+        "Responder únicamente las cinco preguntas de negocio mediante visualizaciones.",
+        "Estructurar cada sección del EDA con objetivo, análisis, gráfico, interpretación, insight y recomendación.",
+        "Definir KPIs precisos como ingresos, ticket promedio y ventas por responsable.",
+        "Aplicar el algoritmo K-Means explicando la preparación de datos y la selección de variables.",
+        "Interpretar los grupos de segmentación para proponer posibles acciones comerciales."
+      ],
+      "items_en": [
+        "Answering strictly the five business questions through visualizations.",
+        "Structuring each EDA section with objective, analysis, chart, interpretation, insight, and recommendation.",
+        "Defining precise KPIs such as revenue, average ticket, and sales by representative.",
+        "Applying the K-Means algorithm explaining data preparation and variable selection.",
+        "Interpreting segmentation clusters to propose possible commercial actions."
+      ]
+    },
+    {
+      "type": "metrics",
+      "id": "metrics",
+      "title_es": "Impacto y Entregables",
+      "title_en": "Impact and Deliverables",
+      "items": [
+        {
+          "value": "5",
+          "label_es": "Preguntas de Negocio",
+          "label_en": "Business Questions"
+        },
+        {
+          "value": "3",
+          "label_es": "Jupyter Notebooks",
+          "label_en": "Jupyter Notebooks"
+        },
+        {
+          "value": "3",
+          "label_es": "Páginas Power BI",
+          "label_en": "Power BI Pages"
+        },
+        {
+          "value": "1",
+          "label_es": "Modelo K-Means",
+          "label_en": "K-Means Model"
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "id": "lessons",
+      "title_es": "Business Insights y Recomendaciones",
+      "title_en": "Business Insights and Recommendations",
+      "content_es": "El proyecto culminó con la creación de un documento Markdown (business_insights.md) que consolidó los principales hallazgos del análisis exploratorio y del modelo de segmentación, traduciendo los datos técnicos en recomendaciones accionables para el negoci. La verificación final mediante checklist aseguró la calidad de los datos limpios y la correcta implementación del dashboard y modelo.",
+      "content_en": "The project culminated with the creation of a Markdown document (business_insights.md) that consolidated the main findings from the exploratory analysis and segmentation model, translating technical data into actionable business recommendations. The final checklist verification ensured the quality of the cleaned data and the correct implementation of the dashboard and model."
+    }
+  ],
+  "technologies": [
+    "Python",
+    "Pandas",
+    "Jupyter Notebook",
+    "Power BI",
+    "Machine Learning",
+    "K-Means Clustering",
+    "Exploratory Data Analysis (EDA)",
+    "Data Cleaning",
+    "Markdown"
+  ],
+  "references": [
+    {
+      "name": "Project on GitHub",
+      "url": "https://github.com/CabHug/CCS_Data_Analysis"
+    }
+  ]
+}
