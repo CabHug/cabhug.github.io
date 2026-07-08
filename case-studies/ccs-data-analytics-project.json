@@ -47,8 +47,8 @@
       "id": "architecture",
       "title_es": "Fases de Procesamiento",
       "title_en": "Processing Phases",
-      "description_es": "Flujo de trabajo del proyecto analítico desarrollado en Notebooks.",
-      "description_en": "Analytical project workflow developed in Notebooks.",
+      "description_es": "Flujo de trabajo del proyecto analítico desarrollado en Notebooks y consultas SQL.",
+      "description_en": "Analytical project workflow developed in Notebooks and SQL queries.",
       "items": [
         {
           "image": "/assets/Portfolio/cc-data-analytics-project/01_data_understanding.png",
@@ -63,6 +63,13 @@
           "title_en": "Data Cleaning",
           "caption_es": "Estandarización de categorías y creación de variables derivadas.",
           "caption_en": "Category standardization and derived variables creation."
+        },
+        {
+          "image": "/assets/Portfolio/cc-data-analytics-project/01_query_sales_by_course_years.png",
+          "title_es": "Data Cleaning",
+          "title_en": "Data Cleaning",
+          "caption_es": "Consulta SQL total de ventas por año.",
+          "caption_en": "SQL quey for total sales by year."
         }
       ]
     },
@@ -75,11 +82,25 @@
       "description_en": "Post-EDA dashboard construction with multiple views.",
       "items": [
         {
-          "image": "/assets/Portfolio/cc-data-analytics-project/01_query_sales_by_course_years.png",
+          "image": "/assets/Portfolio/cc-data-analytics-project/Power_bi_Panel.png",
           "title_es": "Resumen Ejecutivo",
           "title_en": "Executive Summary",
           "caption_es": "Vista de los indicadores de negocio principales.",
           "caption_en": "View of the main business indicators."
+        },
+        {
+          "image": "/assets/Portfolio/cc-data-analytics-project/Power_bi_Estudiantes.png",
+          "title_es": "Resumen Ejecutivo",
+          "title_en": "Executive Summary",
+          "caption_es": "Vista de los indicadores de negocio para estudiantes.",
+          "caption_en": "View of the main business indicators for students."
+        },
+        {
+          "image": "/assets/Portfolio/cc-data-analytics-project/Power_bi_Comercial.png",
+          "title_es": "Resumen Ejecutivo",
+          "title_en": "Executive Summary",
+          "caption_es": "Vista de los indicadores de negocio comerciales.",
+          "caption_en": "View of the main business indicators of business."
         }
       ]
     },
