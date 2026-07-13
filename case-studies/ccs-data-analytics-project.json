@@ -65,6 +65,13 @@
           "caption_en": "Category standardization and derived variables creation."
         },
         {
+          "image": "/assets/Portfolio/cc-data-analytics-project/03_eda.png",
+          "title_es": "Exploratory Data Analysis (EDA)",
+          "title_en": "Exploratory Data Analysis (EDA)",
+          "caption_es": "Analisis y respuesta de preguntas de negocio.",
+          "caption_en": "Business Question Analysis and Findings."
+        },
+        {
           "image": "/assets/Portfolio/cc-data-analytics-project/01_query_sales_by_course_years.png",
           "title_es": "Data Cleaning",
           "title_en": "Data Cleaning",
