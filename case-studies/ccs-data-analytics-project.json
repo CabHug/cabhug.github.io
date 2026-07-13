@@ -72,6 +72,13 @@
           "caption_en": "Business Question Analysis and Findings."
         },
         {
+          "image": "/assets/Portfolio/cc-data-analytics-project/04_k_means.png",
+          "title_es": "Análisis de agrupamiento con K-Means",
+          "title_en": "Clusterin analsysis with K-means",
+          "caption_es": "Este proyecto aplica K-Means clustering para segmentar a los clientes según su comportamiento de compra.",
+          "caption_en": "This project applies K-Means clustering to segment clients based on their purchasing behavior."
+        },
+        {
           "image": "/assets/Portfolio/cc-data-analytics-project/01_query_sales_by_course_years.png",
           "title_es": "Data Cleaning",
           "title_en": "Data Cleaning",
@@ -143,7 +150,7 @@
           "label_en": "Business Questions"
         },
         {
-          "value": "3",
+          "value": "4",
           "label_es": "Jupyter Notebooks",
           "label_en": "Jupyter Notebooks"
         },
