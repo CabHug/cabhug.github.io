@@ -16,7 +16,17 @@
       "items": [
         {
           "id": "da-001",
-          "name_es": "Diploma del Curso de Python para Ciencia de Datos",
+          "name_es": "Diplomado en Big-Data Data science con python",
+          "name_en": "Diploma in Big Data and Data Science with Python",
+          "issuer": "U. de Catalunya",
+          "badges": ["Big Data", "CRISP-DM", "Pandas", "PySpark", "Estadística", "Data Science","BI", "Visualizations"],
+          "desc_es": "Introducción a los conceptos esenciales de análisis de datos masivos, arquitecturas distribuidas y metodologías de ciencia de datos aplicadas con Python.",
+          "desc_en": "Introduction to the core concepts of large-scale data analysis, distributed architectures, and data science methodologies applied with Python.",
+          "file": "assets/U catalunya/Big Data - Data Science con python.png"
+        },
+        {
+          "id": "da-002",
+          "name_es": "Curso de Python para Ciencia de Datos",
           "name_en": "Python for Data Science Course",
           "issuer": "Platzi",
           "badges": ["Python", "Pandas", "Data Science"],
@@ -25,8 +35,8 @@
           "file": "https://platzi.com/p/hacabreral.study/curso/10365-course/diploma/detalle/"
         },
         {
-          "id": "da-002",
-          "name_es": "Diploma del Curso de Matemáticas para Data Science: Estadística Descriptiva",
+          "id": "da-003",
+          "name_es": "Curso de Matemáticas para Data Science: Estadística Descriptiva",
           "name_en": "Math for Data Science: Descriptive Statistics",
           "issuer": "Platzi",
           "badges": ["Estadística", "Data Science"],
@@ -35,8 +45,8 @@
           "file": "https://platzi.com/p/hacabreral.study/curso/2353-course/diploma/detalle/"
         },
         {
-          "id": "da-003",
-          "name_es": "Diploma del Curso de Estadística y Probabilidad",
+          "id": "da-004",
+          "name_es": "Curso de Estadística y Probabilidad",
           "name_en": "Statistics and Probability Course",
           "issuer": "Platzi",
           "badges": ["Estadística", "Probabilidad"],
@@ -45,8 +55,8 @@
           "file": "https://platzi.com/p/hacabreral.study/curso/7594-course/diploma/detalle/"
         },
         {
-          "id": "da-004",
-          "name_es": "Diploma del Curso de Álgebra",
+          "id": "da-005",
+          "name_es": "Curso de Álgebra",
           "name_en": "Algebra Course",
           "issuer": "Platzi",
           "badges": ["Matemáticas"],
@@ -55,8 +65,8 @@
           "file": "https://platzi.com/p/hacabreral.study/curso/1449-course/diploma/detalle/"
         },
         {
-          "id": "da-005",
-          "name_es": "Diploma del Curso de Fundamentos de Matemáticas",
+          "id": "da-006",
+          "name_es": "Curso de Fundamentos de Matemáticas",
           "name_en": "Mathematics Fundamentals Course",
           "issuer": "Platzi",
           "badges": ["Matemáticas"],
@@ -65,8 +75,8 @@
           "file": "https://platzi.com/p/hacabreral.study/curso/1393-course/diploma/detalle/"
         },
         {
-          "id": "da-006",
-          "name_es": "Diploma del Curso de Power BI",
+          "id": "da-007",
+          "name_es": "Curso de Power BI",
           "name_en": "Power BI Course",
           "issuer": "Platzi",
           "badges": ["Power BI", "Reporting"],
@@ -75,8 +85,8 @@
           "file": "https://platzi.com/p/hacabreral.study/curso/10200-course/diploma/detalle/"
         },
         {
-          "id": "da-007",
-          "name_es": "Diploma del Curso de Manejo de Datos Geoespaciales con QGIS",
+          "id": "da-008",
+          "name_es": "Curso de Manejo de Datos Geoespaciales con QGIS",
           "name_en": "Geospatial Data Management with QGIS",
           "issuer": "Platzi",
           "badges": ["QGIS", "GIS"],
@@ -85,8 +95,8 @@
           "file": "https://platzi.com/p/hacabreral.study/curso/3312-course/diploma/detalle/"
         },
         {
-          "id": "da-008",
-          "name_es": "Estadística Aplicada al Proceso Empresarial",
+          "id": "da-009",
+          "name_es": "Aplicada al Proceso Empresarial",
           "name_en": "Applied Statistics for Business Processes",
           "issuer": "U. de Catalunya",
           "badges": ["Estadística", "Business Analytics"],
@@ -105,7 +115,7 @@
       "items": [
         {
           "id": "de-001",
-          "name_es": "Diploma del Curso de Fundamentos de Ingeniería de Software",
+          "name_es": "Curso de Fundamentos de Ingeniería de Software",
           "name_en": "Software Engineering Fundamentals Course",
           "issuer": "Platzi",
           "badges": ["Software Engineering"],
@@ -154,7 +164,7 @@
       "items": [
         {
           "id": "ai-001",
-          "name_es": "Diploma del Curso de Introducción a Machine Learning",
+          "name_es": "Curso de Introducción a Machine Learning",
           "name_en": "Introduction to Machine Learning Course",
           "issuer": "Platzi",
           "badges": ["Machine Learning"],
@@ -164,7 +174,7 @@
         },
         {
           "id": "ai-002",
-          "name_es": "Diploma del Curso de Fundamentos de Redes Neuronales con Python y Keras",
+          "name_es": "Curso de Fundamentos de Redes Neuronales con Python y Keras",
           "name_en": "Neural Networks Fundamentals with Python and Keras",
           "issuer": "Platzi",
           "badges": ["Deep Learning", "Keras", "Python"],
@@ -183,7 +193,7 @@
       "items": [
         {
           "id": "au-001",
-          "name_es": "Diploma del Curso de Python",
+          "name_es": "Curso de Python",
           "name_en": "Python Course",
           "issuer": "Platzi",
           "badges": ["Python"],
@@ -193,7 +203,7 @@
         },
         {
           "id": "au-002",
-          "name_es": "Diploma del Curso de Power Apps y Power Automate",
+          "name_es": "Curso de Power Apps y Power Automate",
           "name_en": "Power Apps and Power Automate Course",
           "issuer": "Platzi",
           "badges": ["Power Automate", "Power Apps", "Low-Code"],
@@ -203,7 +213,7 @@
         },
         {
           "id": "au-003",
-          "name_es": "Diploma del Curso de Automatizaciones con n8n",
+          "name_es": "Curso de Automatizaciones con n8n",
           "name_en": "Automation with n8n Course",
           "issuer": "Platzi",
           "badges": ["n8n", "Workflow Automation"],
@@ -213,7 +223,7 @@
         },
         {
           "id": "au-004",
-          "name_es": "Diploma del Curso Básico de Computadores e Informática",
+          "name_es": "Curso Básico de Computadores e Informática",
           "name_en": "Basic Computers and IT Course",
           "issuer": "Platzi",
           "badges": ["IT Fundamentals"],
@@ -240,17 +250,8 @@
           "desc_es": "Programación y automatización de dispositivos conectados (IoT).",
           "desc_en": "Programming and automation of connected devices (IoT).",
           "file": "assets/SENA/SENA Programacion de dispositivos iot.png"
-        },
-        {
-          "id": "au-007",
-          "name_es": "Aplicación de los Sensores en los Circuitos Electrónicos",
-          "name_en": "Application of Sensors in Electronic Circuits",
-          "issuer": "SENA",
-          "badges": ["IoT", "Electronics"],
-          "desc_es": "Integración de sensores en circuitos electrónicos para procesos automatizados.",
-          "desc_en": "Integrating sensors into electronic circuits for automated processes.",
-          "file": "assets/SENA/SENA aplicacion de los sensores in los circuitos electronicos.png"
         }
+
       ]
     },
     "financial-risk": {
@@ -292,7 +293,7 @@
         },
         {
           "id": "fr-004",
-          "name_es": "Diploma del Curso de Introducción a Educación Financiera",
+          "name_es": "Curso de Introducción a Educación Financiera",
           "name_en": "Introduction to Financial Education Course",
           "issuer": "Platzi",
           "badges": ["Financial Education"],
@@ -351,7 +352,7 @@
         },
         {
           "id": "go-004",
-          "name_es": "Diploma del Curso de Introducción a los Negocios Online en Ecommerce",
+          "name_es": "Curso de Introducción a los Negocios Online en Ecommerce",
           "name_en": "Introduction to Online Business in Ecommerce",
           "issuer": "Platzi",
           "badges": ["Ecommerce", "Business"],
@@ -388,17 +389,8 @@
           "desc_es": "Maquetación y diseño de sitios web con Adobe Dreamweaver.",
           "desc_en": "Web page layout and design with Adobe Dreamweaver.",
           "file": "assets/SENA/SENA Diseño web con dreamweaver.png"
-        },
-        {
-          "id": "go-008",
-          "name_es": "Formación Profesional Integral",
-          "name_en": "Comprehensive Professional Training",
-          "issuer": "SENA",
-          "badges": ["Professional Development"],
-          "desc_es": "Programa de formación profesional integral del SENA.",
-          "desc_en": "SENA's comprehensive professional training program.",
-          "file": "assets/SENA/SENA Formacion profesional integral.png"
         }
+        
       ]
     }
   }

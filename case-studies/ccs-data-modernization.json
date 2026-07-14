@@ -146,6 +146,13 @@
           "caption_es": "Modelo de datos implementado en Power BI.",
 
           "caption_en": "Data model implemented on Power BI."
+        },
+        {
+          "image": "/assets/Portfolio/cc-data-analytics-project/01_query_sales_by_course_years.png",
+          "title_es": "Data Cleaning",
+          "title_en": "Data Cleaning",
+          "caption_es": "Consulta SQL total de ventas por año.",
+          "caption_en": "SQL quey for total sales by year."
         }
 
       ]

@@ -82,7 +82,7 @@ const loader = (() => {
   async function fetchCertifications() {
     if (_cache) return _cache;
     try {
-      const res = await fetch('certifications.json');
+      const res = await fetch('/certifications/certifications.json');
       if (!res.ok) return null;
       _cache = await res.json();
       return _cache;
