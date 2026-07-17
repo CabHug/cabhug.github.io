@@ -1,0 +1,143 @@
+{
+  "id": "latam-name-gender-prediction-pipeline",
+  "metadata": {
+    "date": "2026",
+    "company": "Personal Project",
+    "status": "In Progress",
+    "category": "Data Engineering & Deep Learning",
+    "duration": "In Progress",
+    "confidential": false
+  },
+  "hero": {
+    "title_es": "Arquitectura Medallion para Predicción de Género a partir de Nombres",
+    "title_en": "Medallion Data Pipeline for Name Gender Prediction",
+    "subtitle_es": "PySpark • Data Engineering • Medallion Architecture • Deep Learning • Keras",
+    "subtitle_en": "PySpark • Data Engineering • Medallion Architecture • Deep Learning • Keras",
+    "cover": "/assets/general/banner-linkedIn.jpg",
+    "summary_es": "Proyecto End-to-End enfocado en el diseño e implementación de un pipeline de Ingeniería de Datos utilizando la arquitectura Medallion (Bronze, Silver y Gold) para procesar más de 12 millones de registros de nombres y países mediante PySpark. El objetivo es construir un conjunto de datos confiable y optimizado para entrenar una red neuronal con TensorFlow/Keras capaz de predecir el género de una persona a partir de uno o varios nombres, utilizando únicamente registros provenientes de Latinoamérica.",
+    "summary_en": "End-to-end project focused on designing and implementing a Medallion Architecture (Bronze, Silver and Gold) data pipeline to process more than 12 million records of names and countries using PySpark. The objective is to build a reliable and optimized dataset for training a TensorFlow/Keras neural network capable of predicting a person's gender from one or multiple given names using only Latin American records."
+  },
+  "sections": [
+    {
+      "type": "text",
+      "id": "business-context",
+      "title_es": "Objetivo del Proyecto",
+      "title_en": "Project Objective",
+      "content_es": "El proyecto busca demostrar la implementación de buenas prácticas de Ingeniería de Datos mediante la construcción de un pipeline escalable basado en la arquitectura Medallion. A partir de un dataset de más de 12 millones de registros, se desarrollará un proceso reproducible de ingestión, validación, limpieza y transformación de datos que servirá como base para entrenar un modelo de Deep Learning especializado en la predicción del género a partir de nombres propios.",
+      "content_en": "The project aims to demonstrate Data Engineering best practices by building a scalable Medallion Architecture pipeline. Starting from a dataset containing more than 12 million records, a reproducible ingestion, validation, cleansing and transformation process will be developed to create a high-quality dataset for training a Deep Learning model capable of predicting gender from personal names."
+    },
+    {
+      "type": "text",
+      "id": "problem",
+      "title_es": "Problema",
+      "title_en": "Problem",
+      "content_es": "Los conjuntos de datos públicos de nombres suelen contener información proveniente de múltiples países, inconsistencias en los formatos, duplicados y registros con diferentes niveles de calidad. Estas condiciones dificultan el entrenamiento de modelos de Machine Learning robustos y reproducibles. El proyecto aborda este problema mediante un pipeline de datos que garantiza calidad, trazabilidad y estandarización antes del entrenamiento del modelo.",
+      "content_en": "Public name datasets often contain information from multiple countries, inconsistent formats, duplicates and varying data quality. These issues negatively impact the training of reliable Machine Learning models. This project addresses the problem by implementing a data pipeline that guarantees quality, traceability and standardization before model training."
+    },
+    {
+      "type": "text",
+      "id": "solution",
+      "title_es": "Solución",
+      "title_en": "Solution",
+      "content_es": "Se está desarrollando una solución completa basada en PySpark siguiendo la arquitectura Medallion. La capa Bronze realiza la ingestión del dataset original y su conversión a formato Parquet. La capa Silver implementa procesos de limpieza, estandarización y validación de calidad, incluyendo la selección exclusiva de registros pertenecientes a países latinoamericanos. Finalmente, la capa Gold prepara los datos para el entrenamiento de una red neuronal desarrollada con TensorFlow/Keras, generando conjuntos de entrenamiento, validación y prueba completamente reproducibles.",
+      "content_en": "A complete PySpark-based solution is being developed following the Medallion Architecture. The Bronze layer ingests the original dataset and converts it into Parquet format. The Silver layer performs data cleansing, standardization and quality validation, including filtering only Latin American records. Finally, the Gold layer prepares the data for TensorFlow/Keras model training by generating reproducible training, validation and testing datasets."
+    },
+    {
+      "type": "gallery",
+      "id": "architecture",
+      "title_es": "Arquitectura del Proyecto",
+      "title_en": "Project Architecture",
+      "description_es": "Diagrama de la arquitectura y del flujo de procesamiento implementado mediante PySpark siguiendo el patrón Medallion.",
+      "description_en": "Architecture diagram illustrating the PySpark processing workflow based on the Medallion Architecture.",
+      "items": [
+        {
+          "image": "/assets/Portfolio/latam-name-gender-prediction-pipeline/project_architecture.png",
+          "title_es": "Arquitectura Medallion",
+          "title_en": "Medallion Architecture",
+          "caption_es": "Pipeline Bronze → Silver → Gold para el procesamiento de datos y preparación del conjunto de entrenamiento.",
+          "caption_en": "Bronze → Silver → Gold pipeline for data processing and model-ready dataset generation."
+        }
+      ]
+    },
+    {
+      "type": "list",
+      "id": "challenges",
+      "title_es": "Retos Técnicos",
+      "title_en": "Technical Challenges",
+      "items_es": [
+        "Procesar más de 12 millones de registros utilizando PySpark.",
+        "Diseñar una arquitectura Medallion completamente reproducible.",
+        "Optimizar la lectura mediante conversión de CSV a Parquet.",
+        "Estandarizar nombres, países y etiquetas de género.",
+        "Filtrar únicamente registros pertenecientes a Latinoamérica.",
+        "Preparar datasets listos para entrenamiento con TensorFlow/Keras.",
+        "Construir un proyecto modular siguiendo buenas prácticas de Ingeniería de Datos."
+      ],
+      "items_en": [
+        "Process more than 12 million records using PySpark.",
+        "Design a fully reproducible Medallion Architecture.",
+        "Optimize ingestion by converting CSV files into Parquet.",
+        "Standardize names, countries and gender labels.",
+        "Filter only Latin American records.",
+        "Prepare model-ready datasets for TensorFlow/Keras.",
+        "Build a modular project following Data Engineering best practices."
+      ]
+    },
+    {
+      "type": "metrics",
+      "id": "metrics",
+      "title_es": "Objetivos Técnicos",
+      "title_en": "Technical Goals",
+      "items": [
+        {
+          "value": "12M+",
+          "label_es": "Registros Procesados",
+          "label_en": "Records Processed"
+        },
+        {
+          "value": "3",
+          "label_es": "Capas Medallion",
+          "label_en": "Medallion Layers"
+        },
+        {
+          "value": "1",
+          "label_es": "Pipeline End-to-End",
+          "label_en": "End-to-End Pipeline"
+        },
+        {
+          "value": "1",
+          "label_es": "Modelo Deep Learning",
+          "label_en": "Deep Learning Model"
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "id": "lessons",
+      "title_es": "Estado Actual",
+      "title_en": "Current Status",
+      "content_es": "Actualmente el proyecto se encuentra en desarrollo. Se está implementando la arquitectura Medallion, documentando cada etapa del pipeline y aplicando principios de Ingeniería de Datos como modularización, reutilización de componentes, validación de calidad y separación entre ingestión, transformación y preparación de datos para Machine Learning.",
+      "content_en": "The project is currently under development. The Medallion Architecture is being implemented while documenting every stage of the pipeline and applying Data Engineering principles such as modularization, reusable components, data quality validation and clear separation between ingestion, transformation and Machine Learning data preparation."
+    }
+  ],
+  "technologies": [
+    "Python",
+    "PySpark",
+    "Apache Spark",
+    "Parquet",
+    "Medallion Architecture",
+    "TensorFlow",
+    "Keras",
+    "Deep Learning",
+    "Git",
+    "Jupyter Notebook",
+    "Data Engineering",
+    "Machine Learning"
+  ],
+  "references": [
+    {
+      "name": "Project on GitHub",
+      "url": "https://github.com/CabHug/latam-name-gender-prediction-pipeline"
+    }
+  ]
+}
