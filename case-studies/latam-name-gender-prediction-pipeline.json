@@ -56,6 +56,13 @@
           "title_en": "Medallion Architecture",
           "caption_es": "Pipeline Bronze → Silver → Gold para el procesamiento de datos y preparación del conjunto de entrenamiento.",
           "caption_en": "Bronze → Silver → Gold pipeline for data processing and model-ready dataset generation."
+        },
+        {
+          "image": "/assets/Portfolio/latam-name-gender-prediction-pipeline/big_data_structure.png",
+          "title_es": "Estuctura del proyecto",
+          "title_en": "Project structure",
+          "caption_es": "Estructura del proyecto en Visual Studio Code y resultados de las etapas iniciales del pipeline implementadas en Jupyter Notebooks.",
+          "caption_en": "Project structure in Visual Studio Code and results from the initial pipeline stages implemented in Jupyter Notebooks."
         }
       ]
     },
