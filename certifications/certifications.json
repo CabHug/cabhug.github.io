@@ -132,6 +132,21 @@
         },
         {
           "id": "de-002",
+          "name_es": "Curso de Databricks: Arquitectura Delta Lake",
+          "name_en": "Databricks Course: Delta Lake Architecture",
+          "issuer": "Platzi",
+          "badges": [
+            "Databricks",
+            "Deltalake",
+            "Datawarehosue",
+            "PySpark"
+          ],
+          "desc_es": "El curso de Databricks: Arquitectura Delta Lake enseña a implementar la arquitectura Medallion, organizar datos en capas (bronze, silver y gold), y aplicar buenas prácticas de ingeniería de datos como ingestión, transformación y preparación para Machine Learning. Es una guía práctica para construir pipelines escalables y confiables en la nube.",
+          "desc_en": "The Databricks: Delta Lake Architecture course teaches how to implement the Medallion architecture, organize data into bronze, silver, and gold layers, and apply data engineering best practices for ingestion, transformation, and preparation for Machine Learning. It is a practical guide to building scalable and reliable pipelines in the cloud.",
+          "file": "https://platzi.com/p/hacabreral.study/curso/9540-course/diploma/detalle/"
+        },
+        {
+          "id": "de-003",
           "name_es": "Curso de Fundamentos de Ingeniería de Software",
           "name_en": "Software Engineering Fundamentals Course",
           "issuer": "Platzi",
@@ -141,7 +156,7 @@
           "file": "https://platzi.com/p/hacabreral.study/curso/11997-course/diploma/detalle/"
         },
         {
-          "id": "de-003",
+          "id": "de-004",
           "name_es": "Bases de Datos: Generalidades y Sistemas de Gestión",
           "name_en": "Databases: Fundamentals and Management Systems",
           "issuer": "SENA",
@@ -151,7 +166,7 @@
           "file": "assets/SENA/SENA base de datos generalidades y sistemas de gestion.png"
         },
         {
-          "id": "de-004",
+          "id": "de-005",
           "name_es": "Variables y Estructuras en Java (POO)",
           "name_en": "Variables and Structures in Java (OOP)",
           "issuer": "SENA",
@@ -161,7 +176,7 @@
           "file": "assets/SENA/SENA Variables y estrructuras en JAVA POO.png"
         },
         {
-          "id": "de-005",
+          "id": "de-006",
           "name_es": "Lenguaje de Programación C++",
           "name_en": "C++ Programming Language",
           "issuer": "SENA",

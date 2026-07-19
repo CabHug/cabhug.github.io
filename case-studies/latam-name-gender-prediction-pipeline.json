@@ -3,9 +3,9 @@
   "metadata": {
     "date": "2026",
     "company": "Personal Project",
-    "status": "In Progress",
+    "status": "Completed",
     "category": "Data Engineering & Deep Learning",
-    "duration": "In Progress",
+    "duration": "1 Week",
     "confidential": false
   },
   "hero": {
@@ -63,6 +63,20 @@
           "title_en": "Project structure",
           "caption_es": "Estructura del proyecto en Visual Studio Code y resultados de las etapas iniciales del pipeline implementadas en Jupyter Notebooks.",
           "caption_en": "Project structure in Visual Studio Code and results from the initial pipeline stages implemented in Jupyter Notebooks."
+        },
+        {
+          "image": "/assets/Portfolio/latam-name-gender-prediction-pipeline/accuracy_loss_by_epoc.png",
+          "title_es": "Resultados del entrenamiento",
+          "title_en": "Training results",
+          "caption_es": "La grafica muestra como los datos de precicion van aumentando sin llegar a sobreajuste y el valor de error de igual manera va disminullendo se muestra datos de entrenamiento y validacion.",
+          "caption_en": "The graph shows how the accuracy values increase without leading to overfitting, while the error values decrease in the same way. It displays both training and validation data."
+        },
+        {
+          "image": "/assets/Portfolio/latam-name-gender-prediction-pipeline/test_accuracy.png",
+          "title_es": "Resultados de prueba con un data set externo",
+          "title_en": "Test results with external data set",
+          "caption_es": "En esta prueba se pasa un dataset externo al modelo con el objetivo de medir su precicion y de adaptarlo para futuras necesidades.",
+          "caption_en": "In this test, an external dataset is passed to the model with the objective of measuring its accuracy and adapting it for future needs."
         }
       ]
     },
@@ -121,10 +135,10 @@
     {
       "type": "text",
       "id": "lessons",
-      "title_es": "Estado Actual",
-      "title_en": "Current Status",
-      "content_es": "Actualmente el proyecto se encuentra en desarrollo. Se está implementando la arquitectura Medallion, documentando cada etapa del pipeline y aplicando principios de Ingeniería de Datos como modularización, reutilización de componentes, validación de calidad y separación entre ingestión, transformación y preparación de datos para Machine Learning.",
-      "content_en": "The project is currently under development. The Medallion Architecture is being implemented while documenting every stage of the pipeline and applying Data Engineering principles such as modularization, reusable components, data quality validation and clear separation between ingestion, transformation and Machine Learning data preparation."
+      "title_es": "Business Insights y Recomendaciones",
+      "title_en": "Business Insights and Recomendations",
+      "content_es": "El proyecto termino con la implementacion de una arquitectura Medallion, documentando cada etapa del pipeline y aplicando principios de Ingeniería de Datos como modularización, reutilización de componentes, validación de calidad y separación entre ingestión, transformación y preparación de datos para Machine Learning. Al final se obtuvo un modelo RNN con 83% de presicion.",
+      "content_en": "The project concluded with the implementation of a Medallion architecture, documenting each stage of the pipeline and applying Data Engineering principles such as modularization, component reuse, quality validation, and the separation between ingestion, transformation, and data preparation for Machine Learning. In the end, an RNN model was achieved with 83% accuracy."
     }
   ],
   "technologies": [
