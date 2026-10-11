@@ -1,0 +1,123 @@
+{
+  "id": "aml-transaction-risk-engine",
+  "metadata": {
+    "date": "2026",
+    "company": "Personal Project",
+    "status": "Completed",
+    "category": "Data Engineering & Machine Learning",
+    "duration": "2 Weeks",
+    "confidential": false
+  },
+  "hero": {
+    "title_es": "Motor Modular de Riesgo y Detección de Fraude en Transacciones (AML/LAFT)",
+    "title_en": "Modular Transaction Risk and Fraud Detection Engine (AML/LAFT)",
+    "subtitle_es": "Python • Pandas • K-Means • NLP • Arquitectura Medallion • Scikit-Learn",
+    "subtitle_en": "Python • Pandas • K-Means • NLP • Medallion Architecture • Scikit-Learn",
+    "cover": "/assets/general/banner-linkedIn.jpg",
+    "summary_es": "Desarrollo de un pipeline analítico modular End-to-End para la prevención de Lavado de Activos y Financiación del Terrorismo (LAFT/SAGRILAFT). Integra reglas de ventanas temporales para detección de smurfing, segmentación mediante clustering K-Means y análisis semántico de texto (NLP y Lexicon Bias) para reducir falsos positivos.",
+    "summary_en": "Development of an end-to-end modular analytical pipeline for Anti-Money Laundering (AML/SAGRILAFT) compliance. Integrates sliding window rules for smurfing detection, K-Means customer segmentation, and NLP semantic analysis to reduce false positives."
+  },
+  "sections": [
+    {
+      "type": "text",
+      "id": "business-context",
+      "title_es": "Contexto del Negocio",
+      "title_en": "Business Context",
+      "content_es": "Los equipos de Compliance enfrentan fricción con usuarios legítimos debido a reglas estáticas obsoletas, mientras que las auditorías exigen detectar nuevas tipologías de lavado no cubiertas por el monitoreo tradicional de transacciones.",
+      "content_en": "Compliance teams face friction with legitimate users due to outdated static rules, while audits demand detecting new laundering typologies not covered by traditional transaction monitoring."
+    },
+    {
+      "type": "text",
+      "id": "problem",
+      "title_es": "Problema",
+      "title_en": "Problem",
+      "content_es": "Se requería diseñar un prototipo de motor de riesgo híbrido (Reglas + Machine Learning) utilizando un dataset transaccional multimoneda, capaz de superar las limitaciones de umbrales estáticos y descripciones de texto ambiguas.",
+      "content_en": "The requirement was to design a hybrid risk engine prototype (Rules + Machine Learning) using a multi-currency transactional dataset, capable of overcoming the limitations of static thresholds and ambiguous text descriptions."
+    },
+    {
+      "type": "text",
+      "id": "solution",
+      "title_es": "Solución",
+      "title_en": "Solution",
+      "content_es": "Se implementó un flujo de ingeniería de datos bajo Arquitectura Medallion (Bronze, Silver, Gold). El sistema abarca la detección automatizada de smurfing mediante ventanas deslizantes, segmentación comportamental con K-Means y un pipeline NLP para evaluar la intencionalidad semántica de las glosas de pago.",
+      "content_en": "A data engineering pipeline under Medallion Architecture (Bronze, Silver, Gold) was implemented. The system covers automated smurfing detection via sliding windows, behavioral segmentation with K-Means, and an NLP pipeline to evaluate semantic intent in payment descriptions."
+    },
+    {
+      "type": "list",
+      "id": "challenges",
+      "title_es": "Módulos y Retos Técnicos",
+      "title_en": "Technical Modules and Challenges",
+      "items_es": [
+        "Arquitectura Medallion: Ingesta, validación y optimización de datos en formato Parquet.",
+        "Módulo I (Smurfing): Detección eficiente de operaciones de alta velocidad y bajo valor en ventanas cortas.",
+        "Módulo II (Clustering): Segmentación no supervisada con K-Means, con justificación estadística por método de silueta.",
+        "Módulo III (NLP): Análisis semántico con TF-IDF y Lexicon Bias para generar el nlp_risk_score.",
+        "Integración Ejecutiva: Consolidación de un Adjusted Risk Score unificado para modelos de riesgo y BI."
+      ],
+      "items_en": [
+        "Medallion Architecture: Ingestion, validation, and optimization of data in Parquet format.",
+        "Module I (Smurfing): Efficient detection of high-velocity, low-value operations in short windows.",
+        "Module II (Clustering): Unsupervised segmentation using K-Means with statistical validation via silhouette score.",
+        "Module III (NLP): Semantic analysis with TF-IDF and Lexicon Bias to generate the nlp_risk_score.",
+        "Executive Integration: Consolidation of a unified Adjusted Risk Score for risk models and BI."
+      ]
+    },
+    {
+      "type": "metrics",
+      "id": "metrics",
+      "title_es": "Componentes del Sistema",
+      "title_en": "System Components",
+      "items": [
+        {
+          "value": "3",
+          "label_es": "Capas Medallion",
+          "label_en": "Medallion Layers"
+        },
+        {
+          "value": "3",
+          "label_es": "Módulos Analíticos",
+          "label_en": "Analytical Modules"
+        },
+        {
+          "value": "K=3",
+          "label_es": "Óptimo Clústeres",
+          "label_en": "Optimal Clusters"
+        },
+        {
+          "value": "100%",
+          "label_es": "Modular y Escalable",
+          "label_en": "Modular & Scalable"
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "id": "lessons",
+      "title_es": "Impacto Arquitectónico",
+      "title_en": "Architectural Impact",
+      "content_es": "La combinación de ingeniería de datos robusta, machine learning no supervisado y procesamiento de lenguaje natural permitió transitar de reglas rígidas a un motor analítico híbrido transparente, reduciendo falsos positivos y facilitando la interpretación de riesgos para los equipos de cumplimiento.",
+      "content_en": "The combination of robust data engineering, unsupervised machine learning, and natural language processing enabled transitioning from rigid rules to a transparent hybrid analytical engine, reducing false positives and facilitating risk interpretation for compliance teams."
+    }
+  ],
+  "technologies": [
+    "Python",
+    "Pandas",
+    "NumPy",
+    "Scikit-Learn",
+    "K-Means Clustering",
+    "NLP",
+    "TF-IDF",
+    "Cosine Similarity",
+    "Medallion Architecture",
+    "Parquet",
+    "Data Engineering",
+    "Git",
+    "GitHub"
+  ],
+  "references": [
+    {
+      "name": "Project on GitHub",
+      "url": "https://github.com/CabHug/aml-transaction-monitoring-engine"
+    }
+  ]
+}

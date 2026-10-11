@@ -521,8 +521,8 @@
         en: "Personal content protected. All rights reserved."
       },
       metric_exp:      { es: "Años de Experiencia",   en: "Years of Experience" },
-      metric_certs:    { es: "Certificaciones",        en: "Certifications" },
-      metric_projects: { es: "Proyectos Completados", en: "Projects Completed" },
+      metric_certs:    { es: "Educación continua",        en: "Professional development" },
+      metric_projects: { es: "Portafolio de proyectos", en: "Portfolio projects" },
       metric_learning: { es: "Siempre Aprendiendo",   en: "Always Learning" },
       connect_cta_title: { es: "Diseñemos el futuro con datos", en: "Let's build the future with data" },
       connect_cta_btn:   { es: "Hablemos",  en: "Let's talk" },
@@ -594,6 +594,23 @@
     ],
     projects: [
       {
+        title_es: "Motor Modular de Riesgo y Detección de Fraude en Transacciones (AML/LAFT)",
+        title_en: "Modular Transaction Risk and Fraud Detection Engine (AML/LAFT)",
+        company: "Personal Project",
+        problem_es:
+          "Desarrollo de un pipeline analítico modular End-to-End para la prevención de Lavado de Activos y Financiación del Terrorismo (LAFT/SAGRILAFT). Integra reglas de ventanas temporales para detección de smurfing, segmentación de clientes mediante clustering no supervisado (K-Means) y un motor de procesamiento de lenguaje natural (NLP con TF-IDF y Lexicon Bias) para evaluar la intencionalidad semántica y reducir falsos positivos en transacciones financieras.",
+        problem_en:
+          "Development of an end-to-end modular analytical pipeline for Anti-Money Laundering (AML/SAGRILAFT) compliance. Integrates sliding window rules for smurfing detection, unsupervised customer segmentation using KMeans clustering, and an NLP processing engine (TF-IDF and Lexicon Bias) to evaluate semantic intent and reduce false positives in financial transactions.",
+        badges: ["Python","Pandas","NumPy","Scikit-Learn","K-Means","NLP","TF-IDF","Cosine Similarity","Data Engineering","Machine Learning"],
+        github: "https://github.com/CabHug/aml-transaction-monitoring-engine",
+        case_study_id: "aml-transaction-risk-engine",
+        validation: "public",
+        val_title_es: "Proyecto Open Source · Código Disponible en GitHub",
+        val_title_en: "Open Source Project · Source Code Available on GitHub",
+        refs: [
+          {name: "Hugo Cabrera | LinkedIn", url: "https://www.linkedin.com/in/hugo-cabrera-324272191/"}]
+      },
+      {
         title_es: "Modernización de Infraestructura de Datos y BI",
         title_en: "Data Infrastructure & BI Modernization",
         company:  "Centro de Capacitación del Sur (CCS)",
@@ -624,43 +641,19 @@
       {
       title_es: "Pipeline de Ingeniería de Datos con Arquitectura Medallion para Deep Learning",
       title_en: "Medallion Data Engineering Pipeline for Deep Learning",
-
       company: "Personal Project",
-
       problem_es:
         "Diseño e implementación de un pipeline End-to-End de Ingeniería de Datos utilizando PySpark y la arquitectura Medallion para procesar más de 12 millones de registros. El proyecto construye un flujo reproducible de ingestión, validación, limpieza y transformación de datos, preparando un dataset de alta calidad para entrenar una red neuronal capaz de predecir el género a partir de nombres propios.",
-
       problem_en:
         "Design and implementation of an end-to-end Data Engineering pipeline using PySpark and the Medallion Architecture to process more than 12 million records. The project builds a reproducible ingestion, validation, cleansing and transformation workflow, producing a high-quality dataset for training a neural network capable of predicting gender from personal names.",
-
-      badges: [
-        "PySpark",
-        "Apache Spark",
-        "Data Engineering",
-        "Medallion Architecture",
-        "Parquet",
-        "Deep Learning",
-        "TensorFlow",
-        "Keras",
-        "Python"
-      ],
-
+      badges: ["PySpark","Apache Spark","Data Engineering","Medallion Architecture","Parquet","Deep Learning","TensorFlow","Keras","Python"],
       github: "https://github.com/CabHug/medallion-name-gender-pipeline",
-
       case_study_id: "latam-name-gender-prediction-pipeline",
-
       validation: "public",
-
       val_title_es: "Proyecto Open Source · Código Disponible en GitHub",
-
       val_title_en: "Open Source Project · Source Code Available on GitHub",
-
       refs: [
-        {
-          name: "Hugo Cabrera | LinkedIn",
-          url: "https://www.linkedin.com/in/hugo-cabrera-324272191/"
-        }
-      ]
+        {name: "Hugo Cabrera | LinkedIn", url: "https://www.linkedin.com/in/hugo-cabrera-324272191/"}]
       }
     ],
     enterprise_projects: [
@@ -948,7 +941,7 @@
     document.getElementById('about_highlights').innerHTML = `
       <div class="highlight-card"><span class="highlight-val">4+</span><span class="highlight-lbl">${PORTFOLIO_DATA.ui.metric_exp[currentLang]}</span></div>
       <div class="highlight-card"><span class="highlight-val">20+</span><span class="highlight-lbl">${PORTFOLIO_DATA.ui.metric_certs[currentLang]}</span></div>
-      <div class="highlight-card"><span class="highlight-val">5+</span><span class="highlight-lbl">${PORTFOLIO_DATA.ui.metric_projects[currentLang]}</span></div>
+      <div class="highlight-card"><span class="highlight-val">7</span><span class="highlight-lbl">${PORTFOLIO_DATA.ui.metric_projects[currentLang]}</span></div>
       <div class="highlight-card"><span class="highlight-val"><i class="fas fa-graduation-cap"></i></span><span class="highlight-lbl">${PORTFOLIO_DATA.ui.metric_learning[currentLang]}</span></div>`;
 
     /* 3. FEATURED PROJECTS — carrusel */
